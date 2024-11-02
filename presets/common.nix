@@ -6,10 +6,10 @@
 }:
 
 {
-  imports = [
-    inputs.catppuccin.nixosModules.catppuccin
-    inputs.home-manager.nixosModules.home-manager
-    inputs.ragenix.nixosModules.default
+  imports = with inputs; [
+    catppuccin.nixosModules.catppuccin
+    home-manager.nixosModules.home-manager
+    ragenix.nixosModules.default
 
     ../modules
   ];
@@ -45,15 +45,11 @@
   nixpkgs = {
     config.allowUnfree = true;
 
-    overlays = [
-      inputs.nur.overlay
-      inputs.rust-overlay.overlays.default
-      (self: super: { utillinux = super.util-linux; })
+    overlays = with inputs; [
+      nur.overlay
+      rust-overlay.overlays.default
     ];
   };
-
-  ### Temporary Override
-  nixpkgs.config.permittedInsecurePackages = [ "electron-29.4.6" ];
 
   ### System meta
   time.timeZone = lib.mkDefault "America/New_York";
@@ -97,6 +93,9 @@
   users.users.tibs = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ"
+    ];
   };
 
   ### Home Manager
