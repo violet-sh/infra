@@ -1,0 +1,15 @@
+{
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil",
+    "nix.formatterPath": ["nix", "fmt", "--", "-"],
+    "[nix]": {
+        "editor.defaultFormatter": "jnoortheen.nix-ide"
+    },
+    "nix.serverSettings": {
+        "nil": {
+            "formatting": {
+                "command": ["nix", "fmt", "--", "-"]
+            }
+        }
+    }
+}
