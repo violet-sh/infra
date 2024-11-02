@@ -7,15 +7,12 @@
 
 {
   home.packages = with pkgs; [
-    avizo
     grim
     playerctl
     slurp
     wayland-pipewire-idle-inhibit
-    wl-clipboard
-    swayidle
-
     wayland-scanner
+    wl-clipboard
   ];
 
   programs = {

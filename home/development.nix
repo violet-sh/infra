@@ -14,6 +14,23 @@
       enable = true;
       package = pkgs.jdk;
     };
+
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        astro-build.astro-vscode
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
+        denoland.vscode-deno
+        jnoortheen.nix-ide
+        rust-lang.rust-analyzer
+        svelte.svelte-vscode
+        tamasfe.even-better-toml
+        vadimcn.vscode-lldb
+        vscjava.vscode-java-pack
+      ];
+    };
   };
 
   home.packages = with pkgs; [

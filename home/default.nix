@@ -6,6 +6,8 @@
 
     ./catppuccin.nix
     ./development.nix
+    ./firefox.nix
+    ./fish.nix
     ./jetbrains.nix
     ./neovim.nix
     ./obs.nix
@@ -96,97 +98,6 @@
     chromium = {
       enable = true;
       package = pkgs.ungoogled-chromium;
-    };
-
-    firefox = {
-      enable = true;
-      profiles.tibs = {
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          behave
-          betterttv
-          bitwarden
-          capital-one-eno
-          duckduckgo-privacy-essentials
-          fastforwardteam
-          firefox-color
-          honey
-          languagetool
-          libredirect
-          localcdn
-          mullvad
-          musescore-downloader
-          privacy-pass
-          pronoundb
-          protondb-for-steam
-          protoots
-          refined-github
-          return-youtube-dislikes
-          search-by-image
-          shinigami-eyes
-          simple-translate
-          snowflake
-          sponsorblock
-          stylus
-          tab-stash
-          ublock-origin
-          user-agent-string-switcher
-        ];
-      };
-    };
-
-    fish = {
-      enable = true;
-      plugins = [
-        {
-          name = "autopair";
-          src = pkgs.fishPlugins.autopair.src;
-        }
-        {
-          name = "colored-man-pages";
-          src = pkgs.fishPlugins.colored-man-pages.src;
-        }
-        {
-          name = "done";
-          src = pkgs.fishPlugins.done.src;
-        }
-        {
-          name = "grc";
-          src = pkgs.fishPlugins.grc.src;
-        }
-        {
-          name = "fifc";
-          src = pkgs.fishPlugins.fifc.src;
-        }
-        {
-          name = "forgit";
-          src = pkgs.fishPlugins.forgit.src;
-        }
-        {
-          name = "fzf-fish";
-          src = pkgs.fishPlugins.fzf-fish.src;
-        }
-        {
-          name = "sponge";
-          src = pkgs.fishPlugins.sponge;
-        }
-      ];
-    };
-
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
-        astro-build.astro-vscode
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
-        denoland.vscode-deno
-        jnoortheen.nix-ide
-        rust-lang.rust-analyzer
-        svelte.svelte-vscode
-        tamasfe.even-better-toml
-        vadimcn.vscode-lldb
-        vscjava.vscode-java-pack
-      ];
     };
 
     home-manager.enable = true; # Let Home Manager manage itself

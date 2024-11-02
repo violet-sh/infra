@@ -36,7 +36,7 @@
     udev.packages = [ pkgs.yubikey-personalization ];
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     inputs.deploy-rs.packages.x86_64-linux.deploy-rs
     inputs.ragenix.packages.x86_64-linux.default
   ];
