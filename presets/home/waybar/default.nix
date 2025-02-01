@@ -76,7 +76,7 @@
             default = [
               ""
               ""
-              " "
+              ""
             ];
           };
           on-click = "pwvucontrol";

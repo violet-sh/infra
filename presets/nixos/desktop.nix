@@ -48,6 +48,7 @@
   # Fonts
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
+    nerd-fonts.symbols-only
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
