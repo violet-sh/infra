@@ -1,0 +1,172 @@
+{
+	servers {
+		metrics
+	}
+}
+
+(universal) {
+	encode zstd gzip
+}
+
+(csp) {
+	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+}
+
+(security) {
+	header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+	header X-Content-Type-Options nosniff
+	header X-XSS-Protection "1; mode=block"
+	header X-Frame-Options DENY
+	header Referrer-Policy no-referrer
+	header Permissions-Policy interest-cohort=()
+	header Cross-Origin-Embedder-Policy require-corp
+	header Cross-Origin-Opener-Policy same-origin
+	header Cross-Origin-Resource-Policy same-origin
+}
+
+(bunny) {
+	tls {
+		dns bunny @bunny_tls_api_key@
+	}
+}
+
+(cloudflare) {
+	tls {
+		dns cloudflare @cloudflare_tls_api_key@
+	}
+}
+
+(branding) {
+	header Server Aether
+	header X-Clacks-Overhead "GNU Cecile Richards, Nikki Giovanni, Alexei Navalny, Nex Benedict, Andre Braugher, Corei Hall, Ryan Carson, Harry Belafonte, Brianna Ghey, Technoblade, Alice Litman, Axel Matters, John Lewis, Larry Kramer, George Floyd, Toni Morrison, Aretha Franklin, Stephen Hawking, Ursula K. Le Guin, Ben Barres, Natalie Nguyen, Grace Lee Boggs, Terry Pratchett, Eric Garner, Ruby Dee, Maya Angelou, Pete Seeger, Elizabeth Catlett, Trayvon Martin, Denis Ritchie, Miki Endo, Esther Earl, Lena Horne, Dorothy Height, Eartha Kitt, Katherine Dunham, Octavia E. Butler, Coretta Scott King, Rosa Parks, Shirley Chisholm, Ginny Fiennes, Nina Simone, Sylvia Rivera, Douglas Adams, James Farmer, Matthew Shepard, John Denver, Ella Fitzgerald, Cesar Chavez, Audre Lorde, Marsha P. Johnson, Keith Haring, C. L. R. James, James Baldwin, E. D. Nixon, Roy Wilkins, Terry Fox, A. Philip Randolph, Harvey Milk, Phil Ochs, Whitney Young, Martin Luther King Jr., Woody Guthrie, Langston Hughes, Malcolm X, W. E. B. Du Bois, Alan Turing, Jean Tatlock, Lillian Wald, Ida B. Wells, Mary Burnett Talbert, Frederick Douglass"
+}
+
+(cdn) {
+	header Access-Control-Allow-Methods GET
+	header Access-Control-Allow-Origin *
+	header Cross-Origin-Resource-Policy cross-origin
+}
+
+(default) {
+	import universal
+	import security
+	import bunny
+	import branding
+}
+
+(cf) {
+	import universal
+	import security
+	import cloudflare
+	import branding
+}
+
+aether.tibinonest.me {
+	import cf
+	import csp
+	redir https://aether.tibs.gay{uri}
+}
+
+aether.tibs.gay {
+	import default
+	import csp
+	respond "What are you doing here? :P"
+}
+
+git.tibs.gay {
+	import default
+	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src * data:; font-src data:; connect-src 'self'"
+	header Cross-Origin-Embedder-Policy credentialless
+	reverse_proxy localhost:3000
+}
+
+maven.tibs.gay {
+	import default
+	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://static.tibs.gay; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-eval'; connect-src 'self'"
+	reverse_proxy localhost:2000
+}
+
+panel.tibs.gay {
+	import default
+	header Cross-Origin-Embedder-Policy credentialless
+	reverse_proxy localhost:4000
+}
+
+ci.tibs.gay {
+	import default
+	reverse_proxy localhost:9000
+}
+
+wiki.tibs.gay {
+	import default
+	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self'; img-src * data:; script-src 'self'"
+	header Cross-Origin-Embedder-Policy credentialless
+	reverse_proxy localhost:1737
+}
+
+vault.tibs.gay {
+	import default
+	reverse_proxy localhost:8000
+}
+
+vencord.tibs.gay {
+	import default
+	import csp
+	reverse_proxy localhost:5000
+}
+
+foxel.group {
+	import universal
+	reverse_proxy localhost:10000
+}
+
+devlog.foxel.group {
+	import universal
+	reverse_proxy localhost:10000
+}
+
+watch.tibs.gay {
+	import default
+	reverse_proxy 10.8.0.5:8096
+}
+
+wings.tibs.gay {
+	import default
+	import csp
+	reverse_proxy 10.8.0.5:8080
+}
+
+map.tibs.gay {
+	import default
+	reverse_proxy 10.8.0.5:8000
+}
+
+is.tibs.gay {
+	import default
+	import csp
+	root * /home/tibs/caddy
+	file_server
+	rewrite * /is.tibs.gay.html
+}
+
+open-vt-welcome.tibs.gay {
+	import default
+	import csp
+	root * /home/tibs/caddy
+	file_server
+	rewrite * /welcome.yaml
+}
+
+static.tibs.gay {
+	import default
+	import csp
+	import cdn
+	root * /home/tibs/caddy/static
+	file_server
+}
+
+cdn.tibs.gay {
+	import default
+	import csp
+	redir https://static.tibs.gay{uri}
+}

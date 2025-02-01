@@ -59,16 +59,20 @@ in
     kernelPackages = latestKernelPackage;
   };
 
+  ### Load secrets
+  age.secrets = {
+    zeus_wg0_key.file = ../../secrets/zeus_wg0_key.age;
+    zeus_wg0_preshared_key.file = ../../secrets/zeus_wg0_preshared_key.age;
+  };
+
   ### Networking
   networking = {
     hostName = "zeus";
     hostId = "deadb33f";
     useDHCP = false;
+    dhcpcd.enable = false;
     wireless.enable = false;
-
-    networkmanager = {
-      enable = true;
-    };
+    networkmanager.enable = true;
 
     wireguard.interfaces.wg0 = {
       ips = [
@@ -96,16 +100,22 @@ in
   services = {
     fwupd.enable = true; # Firmware updater
     thermald.enable = true; # Intel CPU thermal daemon
-    tlp.enable = true; # TLP power scaling
     zfs.autoScrub.enable = true; # Run ZFS scrubs automatically
     fprintd.enable = true; # Fingerprint demon
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
 
-  ## Custon Services
-  custom = {
-    blocky.enable = true;
-    chrony.enable = true;
-  };
+  modules.blocky.allowlists = [
+    ''
+      deno.dev
+      *.deno.dev
+    ''
+  ];
 
   ## Systemd services
   systemd.services.fprintd = {
@@ -113,25 +123,10 @@ in
     serviceConfig.Type = "simple";
   };
 
-  ### Power management
-  powerManagement.enable = true;
-
   ### Users
   users.users.tibs = {
-    extraGroups = [ "video" ];
-    shell = pkgs.fish;
+    extraGroups = [ "networkmanager" ];
   };
-
-  ### Fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    nerdfonts
-  ];
 
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.05";

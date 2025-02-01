@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+set -eou pipefail
+
 version=0.1.0
 
 # Changelog:
-# v0.1.0 - initial version
+# v0.1.0 - active development
 
 # Current exit modes:
 # 0 - success

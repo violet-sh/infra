@@ -11,18 +11,26 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    catppuccin.url = "github:catppuccin/nix";
     nixos-hardware.url = "nixos-hardware/master";
-    nur.url = "github:nix-community/NUR";
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,8 +49,6 @@
 
     ###
     # For input follows only
-    systems.url = "github:nix-systems/default";
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.darwin.follows = "";
@@ -55,6 +61,8 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
+
+    systems.url = "github:nix-systems/default";
   };
 
   outputs =
@@ -68,24 +76,38 @@
       nur,
       ragenix,
       rust-overlay,
+      systems,
       ...
     }@inputs:
+    let
+      inherit (self) outputs;
+
+      eachSystem = nixpkgs.lib.genAttrs [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+    in
     {
+      packages = eachSystem (system: import ./packages nixpkgs.legacyPackages.${system});
+
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      overlays = import ./overlays { };
+
       nixosConfigurations = {
         zeus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
           };
 
           modules = [
             nixos-hardware.nixosModules.framework-12th-gen-intel
 
-            ./secrets
-            ./presets/common.nix
-            ./presets/desktop.nix
-            ./presets/laptop.nix
+            ./presets/nixos/common.nix
+            ./presets/nixos/desktop.nix
+            ./presets/nixos/laptop.nix
             ./machines/zeus
           ];
         };
@@ -94,13 +116,12 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
           };
 
           modules = [
-            ./secrets
-            ./presets/common.nix
-            ./presets/desktop.nix
+            ./presets/nixos/common.nix
+            ./presets/nixos/desktop.nix
             ./machines/atlas
           ];
         };
@@ -109,13 +130,12 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
           };
 
           modules = [
-            ./secrets
-            ./presets/common.nix
-            ./presets/desktop.nix
+            ./presets/nixos/common.nix
+            ./presets/nixos/server.nix
             ./machines/aether
           ];
         };
@@ -124,13 +144,12 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
           };
 
           modules = [
-            ./secrets
-            ./presets/common.nix
-            ./presets/desktop.nix
+            ./presets/nixos/common.nix
+            ./presets/nixos/server.nix
             ./machines/apollo
           ];
         };
@@ -160,7 +179,5 @@
 
         checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
       };
-
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }

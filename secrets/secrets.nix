@@ -16,14 +16,60 @@ let
   ];
 in
 {
+  "ssh_key.age".publicKeys = [ tibs ] ++ systems;
   "zeus_wg0_key.age".publicKeys = [
     tibs
     zeus
-    aether
   ];
   "zeus_wg0_preshared_key.age".publicKeys = [
     tibs
     zeus
+    aether
+  ];
+  "atlas_wg0_key.age".publicKeys = [
+    tibs
+    atlas
+  ];
+  "atlas_wg0_preshared_key.age".publicKeys = [
+    tibs
+    atlas
+    aether
+  ];
+  "aether_wg0_key.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "apollo_wg0_key.age".publicKeys = [
+    tibs
+    apollo
+  ];
+  "apollo_wg0_preshared_key.age".publicKeys = [
+    tibs
+    apollo
+    aether
+  ];
+  "hermes_wg0_preshared_key.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "woodpecker_github_client.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "woodpecker_github_secret.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "woodpecker_agent_secret.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "bunny_tls_api_key.age".publicKeys = [
+    tibs
+    aether
+  ];
+  "cloudflare_tls_api_key.age".publicKeys = [
+    tibs
     aether
   ];
 }
