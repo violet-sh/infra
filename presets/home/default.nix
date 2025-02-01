@@ -49,6 +49,7 @@
       aseprite
       coppwr
       foliate
+      gimp
       handbrake
       helvum
       kdePackages.filelight
