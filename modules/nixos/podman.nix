@@ -1,7 +1,8 @@
 { config, lib, ... }:
 let
   cfg = config.modules.podman;
-in {
+in
+{
   options.modules.podman = with lib; {
     enable = mkEnableOption { description = "Enable Podman"; };
     autoPrune = mkOption {
@@ -20,12 +21,12 @@ in {
           ports = mkOption {
             type = listOf str;
             description = "The ports your container has bound";
-            default = [];
+            default = [ ];
           };
           volumes = mkOption {
             type = listOf str;
             description = "The volumes your container has bound";
-            default = [];
+            default = [ ];
           };
           # TODO: Implement auto update
           # See: https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html
