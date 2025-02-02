@@ -61,12 +61,15 @@
 
   ### Common packages
   environment.systemPackages = with pkgs; [
+    dmidecode
     inetutils
     iperf3
     ldns # drill
     lm_sensors
+    lshw
     neofetch
     pciutils # lspci
+    unzip
     usbutils # lsusb
     util-linux # lsblk
     wget

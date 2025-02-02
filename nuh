@@ -78,7 +78,12 @@ case "$verb" in
 		exec $sudo nix store optimise "$@"
 		;;
 	try|t)
-		exec nix shell "nixpkgs#$@"
+		str=""
+		for package in "$@"
+		do
+			str+="nixpkgs#$package "
+		done
+		exec nix shell $str
 		;;
 	show|s)
 		exec eza --tree $dir "$@"
