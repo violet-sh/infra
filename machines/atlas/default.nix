@@ -25,7 +25,7 @@ in
 {
   ### Module imports
   imports = [
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   ### Hardware
