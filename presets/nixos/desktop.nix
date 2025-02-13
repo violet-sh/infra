@@ -5,6 +5,8 @@
     ./sway.nix
   ];
 
+  hardware.graphics.enable = true;
+
   programs = {
     dconf.enable = true;
     fish.enable = true;

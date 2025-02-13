@@ -65,11 +65,14 @@ case "$verb" in
 		cd $dir
 		exec $sudo nix flake update --no-warn-dirty "$@"
 		;;
-	upgrade|up|u)
+	switch|s)
 		cd $dir
 		rm -f ~/.cache/tofi-drun # Grrrrr Tofi needs this to be cleared
-		$sudo nix flake update --no-warn-dirty
 		exec $sudo nixos-rebuild switch "$@"
+		;;
+	upgrade|up|u)
+		nuh update
+		exec nuh switch
 		;;
 	clean)
 		exec $sudo nix store gc "$@"
@@ -85,7 +88,7 @@ case "$verb" in
 		done
 		exec nix shell $str
 		;;
-	show|s)
+	show)
 		exec eza --tree $dir "$@"
 		;;
 	edit|e)

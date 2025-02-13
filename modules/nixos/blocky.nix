@@ -25,7 +25,7 @@ in
     allowlists = mkOption {
       type = with types; listOf str;
       description = "List of allowlists for Blocky";
-      default = [ ];
+      default = [ "*deno.dev" ];
     };
     denylists = mkOption {
       type = with types; listOf str;

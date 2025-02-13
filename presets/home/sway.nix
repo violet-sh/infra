@@ -13,6 +13,7 @@
     wayland-pipewire-idle-inhibit
     wayland-scanner
     wl-clipboard
+    wl-clip-persist
   ];
 
   programs = {
@@ -24,7 +25,6 @@
     avizo.enable = true;
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
-    wob.enable = true;
 
     swayidle = {
       enable = true;
@@ -52,6 +52,12 @@
           command = "${pkgs.swayfx}/bin/swaymsg 'output * power off'";
         }
       ];
+    };
+
+    swaync = {
+      enable = true;
+      settings = { };
+      style = '''';
     };
   };
 
@@ -82,6 +88,8 @@
         dwt = "disabled";
       };
 
+      defaultWorkspace = "workspace number 1";
+
       keybindings =
         let
           modifier = config.wayland.windowManager.sway.config.modifier;
@@ -98,9 +106,13 @@
           XF86MonBrightnessUp = "exec lightctl up";
           XF86MonBrightnessDown = "exec lightctl down";
 
+          "${modifier}+Shift+n" = "exec swaync-client -t -sw";
           "${modifier}+Print" = ''exec grim -g "$(slurp)" - | wl-copy'';
           "${modifier}+Shift+Print" =
             ''exec grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +%F\_%H.%M.%S).png'';
+
+          "${modifier}+b" = "exec firefox";
+          "${modifier}+Shift+b" = "exec firefox --private-window";
         };
 
       window.commands = [
@@ -124,6 +136,15 @@
       bars = [ ];
 
       gaps.inner = 10;
+
+      startup = [
+        { command = "avizo-service"; }
+        { command = "blueman-applet"; }
+        { command = "nm-applet"; }
+        { command = "swaync"; }
+        { command = "wayland-pipewire-idle-inhibit"; }
+        { command = "wl-clip-persist --clipboard regular"; }
+      ];
     };
 
     extraConfig = ''
@@ -147,11 +168,6 @@
       dim_inactive_colors.urgent #899999FF
 
       scratchpad_minimize disable
-
-      exec avizo-service
-      exec nm-applet
-      exec blueman-applet
-      exec wayland-pipewire-idle-inhibit
     '';
 
     checkConfig = false; # https://github.com/nix-community/home-manager/issues/5379

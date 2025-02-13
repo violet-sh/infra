@@ -31,16 +31,22 @@
       # Browsers
       brave
       mullvad-browser
+      tor-browser
 
       # Tools
       bombardier
+      broot
+      chafa
       cowsay
       dogdns
+      hexyl
       hyperfine
+      lazygit
       lolcat
       packwiz
+      procs
       q
-      tor-browser
+      ripgrep
 
       # APIs
       cloudflared
@@ -52,6 +58,7 @@
       gimp
       handbrake
       helvum
+      keepassxc
       kdePackages.filelight
       musescore
       newsflash
@@ -59,6 +66,7 @@
       pwvucontrol
       simplex-chat-desktop
       slack
+      sparrow-wifi
       spotify
       teams-for-linux
       transmission_4-qt

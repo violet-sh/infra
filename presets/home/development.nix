@@ -27,7 +27,7 @@
         rust-lang.rust-analyzer
         svelte.svelte-vscode
         tamasfe.even-better-toml
-        vadimcn.vscode-lldb
+        # vadimcn.vscode-lldb No dangling symlinks still broken for now
         vscjava.vscode-java-pack
       ];
     };

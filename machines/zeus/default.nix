@@ -30,14 +30,10 @@ in
 
   ### Hardware
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-
     graphics.extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
+      vpl-gpu-rt
     ];
   };
 
@@ -109,13 +105,6 @@ in
       openFirewall = true;
     };
   };
-
-  modules.blocky.allowlists = [
-    ''
-      deno.dev
-      *.deno.dev
-    ''
-  ];
 
   ## Systemd services
   systemd.services.fprintd = {

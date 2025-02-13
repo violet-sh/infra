@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   catppuccin.waybar.mode = "createLink";
@@ -26,6 +26,7 @@
           "temperature"
           "backlight"
           "battery"
+          "notifications"
         ];
 
         "sway/workspaces" = {
@@ -79,7 +80,7 @@
               ""
             ];
           };
-          on-click = "pwvucontrol";
+          on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
         };
 
         cpu = {
@@ -134,6 +135,27 @@
         tray = {
           icon-size = 16;
           spacing = 10;
+        };
+
+        notifications = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "<span foreground='red'><sup></sup></span>";
+            none = "";
+            dnd-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-none = "";
+            inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            inhibited-none = "";
+            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-inhibited-none = "";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
         };
       };
     };

@@ -13,10 +13,6 @@
         src = colored-man-pages.src;
       }
       {
-        name = "done";
-        src = done.src;
-      }
-      {
         name = "grc";
         src = grc.src;
       }
@@ -25,16 +21,24 @@
         src = fifc.src;
       }
       {
-        name = "forgit";
-        src = forgit.src;
+        name = "fish-bd";
+        src = fish-bd.src;
       }
       {
-        name = "fzf-fish";
-        src = fzf-fish.src;
+        name = "fish-you-should-use";
+        src = fish-you-should-use.src;
+      }
+      {
+        name = "puffer";
+        src = puffer.src;
       }
       {
         name = "sponge";
-        src = sponge;
+        src = sponge.src;
+      }
+      {
+        name = "z";
+        src = z.src;
       }
     ];
   };

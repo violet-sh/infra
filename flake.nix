@@ -106,7 +106,6 @@
             nixos-hardware.nixosModules.framework-12th-gen-intel
 
             ./presets/nixos/common.nix
-            ./presets/nixos/desktop.nix
             ./presets/nixos/laptop.nix
             ./machines/zeus
           ];

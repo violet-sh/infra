@@ -12,6 +12,7 @@
         duckduckgo-privacy-essentials
         fastforwardteam
         firefox-color
+        keepassxc-browser
         languagetool
         libredirect
         localcdn
