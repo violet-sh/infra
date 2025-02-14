@@ -37,16 +37,28 @@
       bombardier
       broot
       chafa
-      cowsay
       dogdns
+      file
+      has
       hexyl
       hyperfine
       lazygit
-      lolcat
       packwiz
+      pastel
+      pay-respects
+      pigz
       procs
       q
       ripgrep
+      tealdeer
+      undollar
+
+      # Fun
+      cmatrix
+      cowsay
+      fortune-kind
+      lolcat
+      pipes-rs
 
       # APIs
       cloudflared
