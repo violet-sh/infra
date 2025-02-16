@@ -36,6 +36,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/home/tibs/.local/share/Steam/steamapps" = {
+    device = "zroot/steam";
+    fsType = "zfs";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/ADC0-82D2";
     fsType = "vfat";
