@@ -132,7 +132,6 @@
     gpg.enable = true;
     hyfetch.enable = true;
     jq.enable = true;
-    librewolf.enable = true;
     mangohud.enable = true;
 
     alacritty = {

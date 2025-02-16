@@ -26,6 +26,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/nix" = {
+    device = "zroot/nix";
+    fsType = "zfs";
+  };
+
   fileSystems."/home" = {
     device = "zroot/home";
     fsType = "zfs";
