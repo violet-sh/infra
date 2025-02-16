@@ -52,13 +52,6 @@
 
       nur.overlays.default
       rust-overlay.overlays.default
-
-      # Temporary until nixpkgs#380775 gets built by hydra
-      (final: prev: {
-        lldb = prev.lldb.overrideAttrs {
-          dontCheckForBrokenSymlinks = true;
-        };
-      })
     ];
   };
 
