@@ -74,10 +74,12 @@ in
         caching.prefetching = true;
         customDNS.mapping = {
           "aether.wg" = "10.8.0.1";
-          "atlas.wg" = "10.8.0.2";
-          "zeus.wg" = "10.8.0.3";
+          "zeus.wg" = "10.8.0.2";
+          "hera.wg" = "10.8.0.3";
           "hermes.wg" = "10.8.0.4";
-          "apollo.wg" = "10.8.0.5";
+          "hestia.wg" = "10.8.0.5";
+          "athena.wg" = "10.8.0.6";
+          "zephyrus.wg" = "10.8.0.7";
         };
       };
     };

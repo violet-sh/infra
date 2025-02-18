@@ -72,8 +72,8 @@ in
 
     wireguard.interfaces.wg0 = {
       ips = [
-        "10.8.0.3/24"
-        "fd47:4161:82f9::3/64"
+        "10.8.0.2/16"
+        "fd47:4161:82f9::2/64"
       ];
       privateKeyFile = config.age.secrets.zeus_wg0_key.path;
       peers = [
@@ -81,9 +81,8 @@ in
           publicKey = "uQKOe+7uF8Jm+98Uc64sEWJpuLpGH/BykXYySHkW6jg=";
           presharedKeyFile = config.age.secrets.zeus_wg0_preshared_key.path;
           allowedIPs = [
-            "10.8.0.0/24"
+            "10.8.0.0/16"
             "fd47:4161:82f9::/64"
-            "10.0.0.0/24"
           ];
           endpoint = "5.161.106.226:28183";
           persistentKeepalive = 25;

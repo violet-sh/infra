@@ -3,16 +3,20 @@ let
   tibs = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
 
   # --- Systems ---
-  zeus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB91EFeUtoOCYSNamJT3dFydLVQKDuYFVyax3KQkA6mx";
-  atlas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO0m7hkaTc1rQQKnHmXcHKw3/w0awR0TSji25QcUOonI";
   aether = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS7u6vSAlciB0vlRoF8Zjr5pZ/xxkxC5NSLXkEyyUZb";
-  apollo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHx2nkrX8P+FdvF5V6fvVt7XZw2Et6vIbkFVNbGvGZtX";
+  zeus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB91EFeUtoOCYSNamJT3dFydLVQKDuYFVyax3KQkA6mx";
+  hera = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO0m7hkaTc1rQQKnHmXcHKw3/w0awR0TSji25QcUOonI";
+  hestia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHx2nkrX8P+FdvF5V6fvVt7XZw2Et6vIbkFVNbGvGZtX";
+  # athena = "ssh-ed25519 <key>";
+  # zephyrus = "ssh-ed25519 <key>";
 
   systems = [
-    zeus
-    atlas
     aether
-    apollo
+    zeus
+    hera
+    hestia
+    # athena
+    # zephyrus
   ];
 in
 {
@@ -23,30 +27,30 @@ in
   ];
   "zeus_wg0_preshared_key.age".publicKeys = [
     tibs
+    aether
     zeus
-    aether
   ];
-  "atlas_wg0_key.age".publicKeys = [
+  "hera_wg0_key.age".publicKeys = [
     tibs
-    atlas
+    hera
   ];
-  "atlas_wg0_preshared_key.age".publicKeys = [
+  "hera_wg0_preshared_key.age".publicKeys = [
     tibs
-    atlas
     aether
+    hera
   ];
   "aether_wg0_key.age".publicKeys = [
     tibs
     aether
   ];
-  "apollo_wg0_key.age".publicKeys = [
+  "hestia_wg0_key.age".publicKeys = [
     tibs
-    apollo
+    hestia
   ];
-  "apollo_wg0_preshared_key.age".publicKeys = [
+  "hestia_wg0_preshared_key.age".publicKeys = [
     tibs
-    apollo
     aether
+    hestia
   ];
   "hermes_wg0_preshared_key.age".publicKeys = [
     tibs

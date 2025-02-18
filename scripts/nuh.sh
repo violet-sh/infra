@@ -74,7 +74,7 @@ case "$verb" in
 		nuh update
 		exec nuh switch
 		;;
-	clean)
+	clean|gc)
 		exec $sudo nix store gc "$@"
 		;;
 	shrink|optimise|optimize)
@@ -82,8 +82,7 @@ case "$verb" in
 		;;
 	try|t)
 		str=""
-		for package in "$@"
-		do
+		for package in "$@"; do
 			str+="nixpkgs#$package "
 		done
 		exec nix shell $str

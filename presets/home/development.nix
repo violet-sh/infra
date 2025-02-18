@@ -4,12 +4,6 @@
   programs = {
     bun.enable = true;
 
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      silent = true;
-    };
-
     java = {
       enable = true;
       package = pkgs.jdk;
@@ -24,7 +18,7 @@
         catppuccin.catppuccin-vsc-icons
         denoland.vscode-deno
         jnoortheen.nix-ide
-        rust-lang.rust-analyzer
+        # rust-lang.rust-analyzer
         svelte.svelte-vscode
         tamasfe.even-better-toml
         vadimcn.vscode-lldb

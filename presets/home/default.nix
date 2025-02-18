@@ -13,10 +13,10 @@
     ./catppuccin.nix
     ./development.nix
     ./firefox.nix
-    ./fish.nix
     ./jetbrains.nix
     ./neovim.nix
     ./obs.nix
+    ./shell.nix
     ./sway.nix
     ./waybar
 
@@ -42,23 +42,27 @@
       has
       hexyl
       hyperfine
-      lazygit
+      nix-index
       packwiz
       pastel
-      pay-respects
       pigz
       procs
       q
       ripgrep
       tealdeer
+      tokei
+      trippy
       undollar
+      websocat
 
       # Fun
       cmatrix
       cowsay
       fortune-kind
       lolcat
+      nyancat
       pipes-rs
+      sl
 
       # APIs
       cloudflared
@@ -95,12 +99,16 @@
     ];
 
     shellAliases = {
-      zls = "zfs list -o name,mountpoint,mounted,used,available,compression,compressratio,encryption";
       cat = "bat -pp";
       less = "bat --style plain --paging always";
+      lzg = "lazygit";
+      sude = "sudo -E";
     };
 
     file = {
+      ".local/bin/nuh".source = ../../scripts/nuh.sh;
+      ".local/bin/zls".source = ../../scripts/zls.sh;
+
       ".ssh/id_ed25519".source = config.lib.file.mkOutOfStoreSymlink age.secrets.ssh_key.path;
       ".ssh/id_ed25519.pub".text =
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
@@ -127,11 +135,13 @@
     bottom.enable = true;
     btop.enable = true;
     eza.enable = true;
+    fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;
     gpg.enable = true;
     hyfetch.enable = true;
     jq.enable = true;
+    lazygit.enable = true;
     mangohud.enable = true;
 
     alacritty = {
@@ -146,6 +156,13 @@
       enable = true;
       package = pkgs.ungoogled-chromium;
     };
+
+    gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
+
+    gh-dash.enable = true;
 
     home-manager.enable = true; # Let Home Manager manage itself
   };

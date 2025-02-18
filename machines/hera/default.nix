@@ -54,13 +54,13 @@ in
 
   ### Load secrets
   age.secrets = {
-    atlas_wg0_key.file = ../../secrets/atlas_wg0_key.age;
-    atlas_wg0_preshared_key.file = ../../secrets/atlas_wg0_preshared_key.age;
+    hera_wg0_key.file = ../../secrets/hera_wg0_key.age;
+    hera_wg0_preshared_key.file = ../../secrets/hera_wg0_preshared_key.age;
   };
 
   ### Networking
   networking = {
-    hostName = "atlas";
+    hostName = "hera";
     hostId = "b0cc50d1";
     useDHCP = false;
     dhcpcd.enable = false;
@@ -69,18 +69,17 @@ in
 
     wireguard.interfaces.wg0 = {
       ips = [
-        "10.8.0.2/24"
-        "fd47:4161:82f9::2/64"
+        "10.8.0.3/16"
+        "fd47:4161:82f9::3/64"
       ];
-      privateKeyFile = config.age.secrets.atlas_wg0_key.path;
+      privateKeyFile = config.age.secrets.hera_wg0_key.path;
       peers = [
         {
           publicKey = "uQKOe+7uF8Jm+98Uc64sEWJpuLpGH/BykXYySHkW6jg=";
-          presharedKeyFile = config.age.secrets.atlas_wg0_preshared_key.path;
+          presharedKeyFile = config.age.secrets.hera_wg0_preshared_key.path;
           allowedIPs = [
-            "10.8.0.0/24"
+            "10.8.0.0/16"
             "fd47:4161:82f9::/64"
-            "10.0.0.0/24"
           ];
           endpoint = "5.161.106.226:28183";
           persistentKeepalive = 25;

@@ -95,6 +95,20 @@
       overlays = import ./overlays { };
 
       nixosConfigurations = {
+        aether = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [
+            ./presets/nixos/common.nix
+            ./presets/nixos/server.nix
+            ./machines/aether
+          ];
+        };
+
         zeus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
@@ -111,7 +125,7 @@
           ];
         };
 
-        atlas = nixpkgs.lib.nixosSystem {
+        hera = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = {
@@ -121,11 +135,11 @@
           modules = [
             ./presets/nixos/common.nix
             ./presets/nixos/desktop.nix
-            ./machines/atlas
+            ./machines/hera
           ];
         };
 
-        aether = nixpkgs.lib.nixosSystem {
+        hestia = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = {
@@ -135,11 +149,11 @@
           modules = [
             ./presets/nixos/common.nix
             ./presets/nixos/server.nix
-            ./machines/aether
+            ./machines/hestia
           ];
         };
 
-        apollo = nixpkgs.lib.nixosSystem {
+        athena = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = {
@@ -149,10 +163,23 @@
           modules = [
             ./presets/nixos/common.nix
             ./presets/nixos/server.nix
-            ./machines/apollo
+            # ./machines/aethna
           ];
         };
 
+        zephyrus = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [
+            ./presets/nixos/common.nix
+            ./presets/nixos/server.nix
+            # ./machines/zephyrus
+          ];
+        };
       };
 
       deploy = {
@@ -161,19 +188,29 @@
         user = "root";
         sshUser = "tibs";
 
-        nodes.atlas = {
-          hostname = "atlas.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.atlas;
-        };
-
         nodes.aether = {
           hostname = "aether.wg";
           profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.aether;
         };
 
-        nodes.apollo = {
-          hostname = "apollo.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.apollo;
+        nodes.hera = {
+          hostname = "hera.wg";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hera;
+        };
+
+        nodes.hestia = {
+          hostname = "hestia.wg";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hestia;
+        };
+
+        nodes.athena = {
+          hostname = "athena.wg";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.athena;
+        };
+
+        nodes.zephyrus = {
+          hostname = "zephyrus.wg";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zephyrus;
         };
 
         checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
