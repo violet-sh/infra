@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 let
   isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
   zfsCompatibleKernelPackages = lib.filterAttrs (
@@ -26,6 +25,8 @@ in
   ### Module imports
   imports = [
     ./hardware-configuration.nix
+
+    ../../presets/nixos/desktop.nix
   ];
 
   ### Hardware

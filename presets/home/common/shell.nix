@@ -1,6 +1,13 @@
 { pkgs, ... }:
-
 {
+  home.shellAliases = {
+    cat = "bat -pp";
+    less = "bat --style plain --paging always";
+    lolcat = "bash -c lolcat"; # Lolcat is currently broken with fish for some reason
+    lzg = "lazygit";
+    sude = "sudo -E";
+  };
+
   programs = {
     pay-respects.enable = true;
     zoxide.enable = true;

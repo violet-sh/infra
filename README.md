@@ -23,6 +23,7 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 | Hestia   | 10.8.0.5     | Home NAS    |
 | Athena   | 10.8.0.6     | Uni NAS     |
 | Zephyrus | 10.8.0.7     | Backup VPS  |
+| Dionysus | 10.8.0.8     | Tablet      |
 
 ### Other hosts
 - Eos: DNS nameserver 1

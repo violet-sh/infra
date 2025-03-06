@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   ### Module imports
   imports = [

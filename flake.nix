@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +49,11 @@
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -76,6 +86,7 @@
       nur,
       ragenix,
       rust-overlay,
+      treefmt-nix,
       systems,
       ...
     }@inputs:
@@ -86,101 +97,44 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
+
+      eachMachine = nixpkgs.lib.genAttrs [
+        # "aether"
+        "zeus"
+        "hera"
+        # "hestia"
+        # "athena"
+        # "zephyrus"
+      ];
+
+      treefmt = eachSystem (
+        system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
     in
     {
       packages = eachSystem (system: import ./packages nixpkgs.legacyPackages.${system});
 
-      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = eachSystem (system: treefmt.${system}.config.build.wrapper);
+
+      checks = eachSystem (system: {
+        formatting = treefmt.${system}.config.build.check self;
+      });
 
       overlays = import ./overlays { };
 
-      nixosConfigurations = {
-        aether = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = eachMachine (
+        machine:
+        nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = {
-            inherit inputs outputs;
-          };
+          specialArgs = { inherit inputs outputs; };
 
           modules = [
             ./presets/nixos/common.nix
-            ./presets/nixos/server.nix
-            ./machines/aether
+            ./machines/${machine}
           ];
-        };
-
-        zeus = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            nixos-hardware.nixosModules.framework-12th-gen-intel
-
-            ./presets/nixos/common.nix
-            ./presets/nixos/laptop.nix
-            ./machines/zeus
-          ];
-        };
-
-        hera = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./presets/nixos/common.nix
-            ./presets/nixos/desktop.nix
-            ./machines/hera
-          ];
-        };
-
-        hestia = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./presets/nixos/common.nix
-            ./presets/nixos/server.nix
-            ./machines/hestia
-          ];
-        };
-
-        athena = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./presets/nixos/common.nix
-            ./presets/nixos/server.nix
-            # ./machines/aethna
-          ];
-        };
-
-        zephyrus = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./presets/nixos/common.nix
-            ./presets/nixos/server.nix
-            # ./machines/zephyrus
-          ];
-        };
-      };
+        }
+      );
 
       deploy = {
         fastConnection = true;
@@ -188,30 +142,12 @@
         user = "root";
         sshUser = "tibs";
 
-        nodes.aether = {
-          hostname = "aether.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.aether;
-        };
-
-        nodes.hera = {
-          hostname = "hera.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hera;
-        };
-
-        nodes.hestia = {
-          hostname = "hestia.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hestia;
-        };
-
-        nodes.athena = {
-          hostname = "athena.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.athena;
-        };
-
-        nodes.zephyrus = {
-          hostname = "zephyrus.wg";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zephyrus;
-        };
+        nodes = eachMachine (machine: {
+          hostname = "${machine}.wg";
+          profiles.system.path =
+            deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.${machine};
+        });
 
         checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
       };

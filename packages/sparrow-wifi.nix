@@ -3,7 +3,6 @@
   pkgs,
   python3Packages,
 }:
-
 python3Packages.buildPythonApplication {
   pname = "sparrow-wifi";
   version = "b6018c5";
@@ -21,9 +20,7 @@ python3Packages.buildPythonApplication {
     wirelesstools
   ];
 
-  nativeBuildInputs = with pkgs; [
-    qt5.wrapQtAppsHook
-  ];
+  nativeBuildInputs = with pkgs; [ qt5.wrapQtAppsHook ];
 
   dependencies = with python3Packages; [
     gps3

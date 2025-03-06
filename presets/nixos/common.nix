@@ -6,7 +6,6 @@
   pkgs,
   ...
 }:
-
 {
   imports = with inputs; [
     catppuccin.nixosModules.catppuccin
@@ -55,6 +54,10 @@
     ];
   };
 
+  environment.etc = {
+    "nixos".source = "/home/tibs/infra";
+  };
+
   ### System meta
   time.timeZone = lib.mkDefault "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -79,6 +82,7 @@
   programs = {
     git.enable = true;
     htop.enable = true;
+    nix-ld.enable = true;
 
     neovim = {
       enable = true;
@@ -88,10 +92,15 @@
     };
   };
 
-  # Common services
+  ### Common services
   modules = {
     blocky.enable = lib.mkDefault true;
     chrony.enable = lib.mkDefault true;
+  };
+
+  ### Networking
+  networking = {
+    search = [ "wg" ];
   };
 
   ### Users

@@ -5,12 +5,8 @@ in
 {
   options.modules.woodpecker-server = with lib; {
     enable = mkEnableOption { description = "Enable the Woodpecker server"; };
-    hostname = mkOption {
-      type = types.str;
-    };
-    port = mkOption {
-      type = types.port;
-    };
+    hostname = mkOption { type = types.str; };
+    port = mkOption { type = types.port; };
     orgs = mkOption {
       type = with types; mkList str;
       description = "A list of GitHub orgs allowed to log in";

@@ -1,5 +1,4 @@
 { config, ... }:
-
 {
   # Load secrets
   age.secrets = {
@@ -10,6 +9,7 @@
     hestia_wg0_preshared_key.file = ../../secrets/hestia_wg0_preshared_key.age;
     # athena_wg0_preshared_key.file = ../../secrets/athena_wg0_preshared_key.age;
     # zephyrus_wg0_preshared_key.file = ../../secrets/zephyrus_wg0_preshared_key.age;
+    dionysus_wg0_preshared_key.file = ../../secrets/dionysus_wg0_preshared_key.age;
   };
 
   networking.wireguard.interfaces.wg0 = {
@@ -73,6 +73,15 @@
       #     "fd47:4161:82f9::7/128"
       #   ];
       # }
+      {
+        # Dionysus
+        publicKey = "tDfcWasj6SBCG+tFGl0UTZT0ZTiP5i+lCeN8o0Svtg4=";
+        presharedKeyFile = config.age.secrets.dionysus_wg0_preshared_key.path;
+        allowedIPs = [
+          "10.8.0.8/32"
+          "fd47:4161:82f9::8/128"
+        ];
+      }
     ];
   };
 }

@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   home.packages = with pkgs; [
     grim
@@ -57,7 +56,7 @@
     swaync = {
       enable = true;
       settings = { };
-      style = '''';
+      style = "";
     };
   };
 

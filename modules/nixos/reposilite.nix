@@ -5,12 +5,8 @@ in
 {
   options.modules.reposilite = with lib; {
     enable = mkEnableOption { description = "Enable Reposilite"; };
-    hostname = mkOption {
-      type = types.str;
-    };
-    port = mkOption {
-      type = types.port;
-    };
+    hostname = mkOption { type = types.str; };
+    port = mkOption { type = types.port; };
   };
 
   config = lib.mkIf cfg.enable {

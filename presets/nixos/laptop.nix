@@ -1,9 +1,6 @@
 { pkgs, ... }:
-
 {
-  imports = [
-    ./desktop.nix
-  ];
+  imports = [ ./desktop.nix ];
 
   hardware = {
     bluetooth = {

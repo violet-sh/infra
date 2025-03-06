@@ -1,9 +1,6 @@
 { inputs, pkgs, ... }:
-
 {
-  imports = [
-    ./sway.nix
-  ];
+  imports = [ ./sway.nix ];
 
   hardware.graphics.enable = true;
 

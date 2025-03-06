@@ -21,6 +21,10 @@ let
 in
 {
   "ssh_key.age".publicKeys = [ tibs ] ++ systems;
+  "aether_wg0_key.age".publicKeys = [
+    tibs
+    aether
+  ];
   "zeus_wg0_key.age".publicKeys = [
     tibs
     zeus
@@ -39,7 +43,7 @@ in
     aether
     hera
   ];
-  "aether_wg0_key.age".publicKeys = [
+  "hermes_wg0_preshared_key.age".publicKeys = [
     tibs
     aether
   ];
@@ -52,7 +56,7 @@ in
     aether
     hestia
   ];
-  "hermes_wg0_preshared_key.age".publicKeys = [
+  "dionysus_wg0_preshared_key.age".publicKeys = [
     tibs
     aether
   ];

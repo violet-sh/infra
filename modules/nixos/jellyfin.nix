@@ -5,12 +5,8 @@ in
 {
   options.modules.jellyfin = with lib; {
     enable = mkEnableOption { description = "Enable Jellyfin"; };
-    hostname = mkOption {
-      type = types.str;
-    };
-    port = mkOption {
-      type = types.port;
-    };
+    hostname = mkOption { type = types.str; };
+    port = mkOption { type = types.port; };
   };
 
   config = lib.mkIf cfg.enable {

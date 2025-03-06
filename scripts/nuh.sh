@@ -71,8 +71,8 @@ case "$verb" in
 		exec $sudo nixos-rebuild switch "$@"
 		;;
 	upgrade|up|u)
-		nuh update
-		exec nuh switch
+		$0 update
+		exec $0 switch
 		;;
 	clean|gc)
 		exec $sudo nix store gc "$@"

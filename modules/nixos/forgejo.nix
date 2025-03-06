@@ -5,12 +5,8 @@ in
 {
   options.modules.forgejo = with lib; {
     enable = mkEnableOption { description = "Enable Forgejo"; };
-    hostname = mkOption {
-      type = types.str;
-    };
-    port = mkOption {
-      type = types.port;
-    };
+    hostname = mkOption { type = types.str; };
+    port = mkOption { type = types.port; };
   };
 
   config = lib.mkIf cfg.enable {

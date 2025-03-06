@@ -8,45 +8,28 @@
   ...
 }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
   boot.initrd.availableKernelModules = [
+    "ahci"
     "xhci_pci"
-    "thunderbolt"
-    "nvme"
-    "usbhid"
+    "virtio_pci"
+    "virtio_scsi"
+    "sd_mod"
+    "sr_mod"
+    "virtio_blk"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "zroot/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/nix" = {
-    device = "zroot/nix";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home" = {
-    device = "zroot/home";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home/tibs/.local/share/PrismLauncher/instances" = {
-    device = "zroot/prism";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home/tibs/.local/share/Steam/steamapps" = {
-    device = "zroot/steam";
-    fsType = "zfs";
+    device = "/dev/disk/by-uuid/46f22931-63b4-45b5-af81-110fecb64526";
+    fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/ADC0-82D2";
+    device = "/dev/disk/by-uuid/1A41-FBD7";
     fsType = "vfat";
     options = [
       "dmask=0077"
@@ -54,15 +37,15 @@
     ];
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/46cf26b0-87fb-4060-9abc-e7e175a3b4a1"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/6ae76570-5fc2-4e42-8a4e-c0cb19d42ddf"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp166s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

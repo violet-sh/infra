@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   catppuccin.waybar.mode = "createLink";
 
