@@ -177,6 +177,9 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdk-desktop-portal-wlr ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdk-desktop-portal-wlr
+    ];
   };
 }

@@ -35,7 +35,10 @@
       settings = {
         general = {
           lock_cmd = "${pkgs.hyprlock}/bin/hyprlock";
-          before_sleep_cmd = [ "${pkgs.playerctl}/bin/playerctl pause" "${pkgs.hyprlock}/bin/hyprlock" ];
+          before_sleep_cmd = [
+            "${pkgs.playerctl}/bin/playerctl pause"
+            "${pkgs.hyprlock}/bin/hyprlock"
+          ];
           after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
         };
         listener = [

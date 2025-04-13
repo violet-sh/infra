@@ -57,7 +57,7 @@
       sl
 
       # APIs
-      # cloudflared
+      cloudflared
 
       # Libraries
       grc
@@ -89,6 +89,7 @@
     nix-index.enable = true;
     nix-index-database.comma.enable = true;
     ripgrep.enable = true;
+    tealdeer.enable = true;
 
     gh = {
       enable = true;
@@ -96,8 +97,6 @@
     };
 
     gh-dash.enable = true;
-
-    tealdeer.enable = true;
 
     home-manager.enable = true; # Let Home Manager manage itself
   };

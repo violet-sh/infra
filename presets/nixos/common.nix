@@ -81,6 +81,7 @@
   ### Common programs
   programs = {
     htop.enable = true;
+    mtr.enable = true;
     nix-ld.enable = true;
 
     git = {
