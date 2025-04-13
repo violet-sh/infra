@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = with inputs; [
-    catppuccin.homeManagerModules.catppuccin
+    catppuccin.homeModules.catppuccin
     nix-index-database.hmModules.nix-index
 
     ../../modules/home

@@ -39,6 +39,11 @@
       undollar
       websocat
 
+      # GPU CLIs
+      glmark2
+      mesa-demos
+      vulkan-tools
+
       # Fun
       charasay
       cmatrix
@@ -52,7 +57,7 @@
       sl
 
       # APIs
-      cloudflared
+      # cloudflared
 
       # Libraries
       grc

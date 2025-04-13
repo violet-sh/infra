@@ -12,10 +12,10 @@
         position = "top";
         margin = "10 10 0 10";
         modules-left = [
-          "sway/workspaces"
+          "hyprland/workspaces"
           "tray"
-          "sway/mode"
-          "sway/scratchpad"
+          "hyprland/submap"
+          "hyprland/scratchpad"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -28,18 +28,18 @@
           "notifications"
         ];
 
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
           persistent-workspaces = {
             "1" = [ ];
           };
         };
 
-        "sway/mode" = {
+        "hyprland/submap" = {
           format = ''<span style="italic">{}</span>'';
         };
 
-        "sway/scratchpad" = {
+        "hyprland/scratchpad" = {
           format = "{icon} {count}";
           show-empty = false;
           format-icons = [

@@ -12,6 +12,11 @@
     pay-respects.enable = true;
     zoxide.enable = true;
 
+    atuin = {
+      enable = true;
+      flags = [ "-disable-up-arrow" ];
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;

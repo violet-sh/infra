@@ -38,6 +38,10 @@ in
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    intel-gpu-tools
+  ];
+
   ### Boot
   boot = {
     loader.grub = {

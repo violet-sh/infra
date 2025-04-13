@@ -1,8 +1,10 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ ./sway.nix ];
+  imports = [ ./hyprland.nix ];
 
   hardware.graphics.enable = true;
+
+  catppuccin.enable = true;
 
   programs = {
     dconf.enable = true;

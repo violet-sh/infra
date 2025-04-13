@@ -55,8 +55,6 @@
 
     swaync = {
       enable = true;
-      settings = { };
-      style = "";
     };
   };
 
@@ -83,6 +81,11 @@
       input."type:touchpad" = {
         tap = "enabled";
         click_method = "clickfinger";
+        natural_scroll = "enabled";
+        dwt = "disabled";
+      };
+
+      input."type:pointer" = {
         natural_scroll = "enabled";
         dwt = "disabled";
       };
@@ -170,5 +173,10 @@
     '';
 
     checkConfig = false; # https://github.com/nix-community/home-manager/issues/5379
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdk-desktop-portal-wlr ];
   };
 }

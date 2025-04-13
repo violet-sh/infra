@@ -11,10 +11,6 @@ window#waybar {
     background: transparent;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
 widget label, widget box {
     background: @base;
     padding: 0 1rem;
@@ -34,12 +30,13 @@ widget label, widget box {
 
 #workspaces label {
     background: transparent;
+    padding: .4rem 0;
 }
 
 #workspaces button {
     padding: .4rem 0;
 }
 
-#workspaces button.focused, #workspaces button:hover {
+#workspaces button.active, #workspaces button:hover {
     background: @surface0;
 }

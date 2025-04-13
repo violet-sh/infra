@@ -80,9 +80,13 @@
 
   ### Common programs
   programs = {
-    git.enable = true;
     htop.enable = true;
     nix-ld.enable = true;
+
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
 
     neovim = {
       enable = true;

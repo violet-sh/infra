@@ -9,12 +9,14 @@
     };
   };
 
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   networking.networkmanager.wifi.powersave = true;
 
   services = {
-    tlp.enable = true;
-
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;

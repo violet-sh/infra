@@ -4,7 +4,7 @@
     ./firefox.nix
     ./jetbrains.nix
     ./obs.nix
-    ./sway.nix
+    ./hyprland.nix
     ./waybar
   ];
 
@@ -18,6 +18,7 @@
       # Apps
       aseprite
       coppwr
+      drawio
       foliate
       gimp
       handbrake
@@ -88,12 +89,6 @@
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
-    };
-
-    portal = {
-      enable = true;
-      configPackages = [ pkgs.xdg-desktop-portal-gtk ];
-      extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
     };
   };
 }
