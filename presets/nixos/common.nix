@@ -36,9 +36,13 @@
       ];
       system-features = [ "recursive-nix" ];
       trusted-users = [ "tibs" ];
-      extra-substituters = [ "https://nix-community.cachix.org" ];
-      extra-trusted-public-keys = [
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://hyprland.cachix.org"
+      ];
+      trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
   };
@@ -105,7 +109,7 @@
 
   ### Networking
   networking = {
-    search = [ "wg" ];
+    search = [ "wg" "as215207.net" ];
   };
 
   ### Users
@@ -135,12 +139,5 @@
   ### Setup ragenix
   age = {
     identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-
-    # Load ssh key from age file for home-manager
-    secrets.ssh_key = {
-      file = ../../secrets/ssh_key.age;
-      owner = "tibs";
-      group = "users";
-    };
   };
 }

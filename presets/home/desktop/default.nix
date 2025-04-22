@@ -2,8 +2,6 @@
 {
   imports = [
     ./firefox.nix
-    ./jetbrains.nix
-    ./obs.nix
     ./hyprland.nix
     ./waybar
   ];
@@ -17,6 +15,7 @@
 
       # Apps
       aseprite
+      bitwarden-desktop
       coppwr
       drawio
       foliate
@@ -38,11 +37,32 @@
       vesktop
       video-trimmer
       vlc
+      wavemon
       zoom-us
+
+      # Jetbrains
+      jetbrains.clion
+      jetbrains.goland
+      jetbrains.idea-ultimate
+      jetbrains.pycharm-professional
+      jetbrains.rider
+      jetbrains.rust-rover
+      jetbrains.webstorm
+
+      # OBS
+      obs-studio
+      obs-studio-plugins.wlrobs
+      obs-studio-plugins.obs-vkcapture
+      obs-studio-plugins.obs-webkitgtk
+      obs-studio-plugins.obs-pipewire-audio-capture
 
       # Misc
       networkmanagerapplet
     ];
+
+    sessionVariables = {
+      SSH_AUTH_SOCK = "/home/tibs/.bitwarden-ssh-agent.sock";
+    };
   };
 
   programs = {

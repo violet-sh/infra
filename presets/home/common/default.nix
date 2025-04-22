@@ -1,6 +1,4 @@
 {
-  age,
-  config,
   pkgs,
   ...
 }:
@@ -66,10 +64,6 @@
     file = {
       ".local/bin/nuh".source = ../../../scripts/nuh.sh;
       ".local/bin/zls".source = ../../../scripts/zls.sh;
-
-      ".ssh/id_ed25519".source = config.lib.file.mkOutOfStoreSymlink age.secrets.ssh_key.path;
-      ".ssh/id_ed25519.pub".text =
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
     };
   };
 
@@ -82,6 +76,7 @@
     fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;
+    gh-dash.enable = true;
     gpg.enable = true;
     hyfetch.enable = true;
     jq.enable = true;
@@ -96,7 +91,34 @@
       settings.git_protocol = "ssh";
     };
 
-    gh-dash.enable = true;
+    git = {
+      enable = true;
+      lfs.enable = true;
+      userName = "tibs";
+      userEmail = "tibs@tibinonest.me";
+      signing = {
+        key = "047833989F50F88F";
+        signByDefault = true;
+      };
+    };
+
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        default = {
+          host = "*";
+          setEnv = {
+            TERM = "xterm-color";
+          };
+        };
+
+        github = {
+          host = "github.com";
+          hostname = "github.com";
+          user = "git";
+        };
+      };
+    };
 
     home-manager.enable = true; # Let Home Manager manage itself
   };

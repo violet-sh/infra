@@ -17,8 +17,7 @@
     mold
     ninja
     pkg-config
-    rocmPackages.llvm.clang
-    rocmPackages.llvm.clang-tools-extra
+    rocmPackages.clang
 
     # Containers
     firecracker

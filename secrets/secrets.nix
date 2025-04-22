@@ -20,7 +20,6 @@ let
   ];
 in
 {
-  "ssh_key.age".publicKeys = [ tibs ] ++ systems;
   "aether_wg0_key.age".publicKeys = [
     tibs
     aether
