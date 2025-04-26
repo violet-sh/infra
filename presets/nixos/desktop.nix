@@ -14,6 +14,7 @@
     # GnuPG
     gnupg.agent = {
       enable = true;
+      enableSSHSupport = true;
     };
   };
 
@@ -58,6 +59,14 @@
     fira-code
     fira-go
   ];
+
+  # Open up firewall
+  networking.firewall = {
+    allowedTCPPorts = [
+      8081 # Expo
+      36000 # Simplex
+    ];
+  };
 
   security.polkit.enable = true;
 

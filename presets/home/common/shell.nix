@@ -5,6 +5,7 @@
     less = "bat --style plain --paging always";
     lolcat = "bash -c lolcat"; # Lolcat is currently broken with fish for some reason
     lzg = "lazygit";
+    rage = "ragenix -i ~/.ssh/ragenix_ed25519";
     sude = "sudo -E";
   };
 

@@ -1,4 +1,6 @@
 {
+  age,
+  config,
   pkgs,
   ...
 }:
@@ -64,6 +66,10 @@
     file = {
       ".local/bin/nuh".source = ../../../scripts/nuh.sh;
       ".local/bin/zls".source = ../../../scripts/zls.sh;
+
+      ".ssh/ragenix_ed25519".source = config.lib.file.mkOutOfStoreSymlink age.secrets.ragenix_key.path;
+      ".ssh/ragenix_ed25519.pub".text =
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfxuU8uMTeoNhOn0AM/LysdLrOxfeYT0c/N+Rh/ChgY";
     };
   };
 

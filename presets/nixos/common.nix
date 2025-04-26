@@ -11,8 +11,6 @@
     catppuccin.nixosModules.catppuccin
     home-manager.nixosModules.home-manager
     ragenix.nixosModules.default
-
-    ../../modules/nixos
   ];
 
   ### Common Nix settings
@@ -109,6 +107,8 @@
 
   ### Networking
   networking = {
+    firewall.enable = true;
+    nftables.enable = true;
     search = [ "wg" "as215207.net" ];
   };
 
@@ -139,5 +139,12 @@
   ### Setup ragenix
   age = {
     identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+    # Load ssh key from age file for home-manager
+    secrets.ragenix_key = {
+      file = ../../secrets/ragenix_key.age;
+      owner = "tibs";
+      group = "users";
+    };
   };
 }

@@ -1,6 +1,7 @@
 let
   # --- Users ---
   tibs = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
+  ragenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfxuU8uMTeoNhOn0AM/LysdLrOxfeYT0c/N+Rh/ChgY";
 
   # --- Systems ---
   aether = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS7u6vSAlciB0vlRoF8Zjr5pZ/xxkxC5NSLXkEyyUZb";
@@ -20,63 +21,81 @@ let
   ];
 in
 {
+  "ragenix_key.age".publicKeys = [
+    tibs
+    ragenix
+  ] ++ systems;
   "aether_wg0_key.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "zeus_wg0_key.age".publicKeys = [
     tibs
+    ragenix
     zeus
   ];
   "zeus_wg0_preshared_key.age".publicKeys = [
     tibs
+    ragenix
     aether
     zeus
   ];
   "hera_wg0_key.age".publicKeys = [
     tibs
+    ragenix
     hera
   ];
   "hera_wg0_preshared_key.age".publicKeys = [
     tibs
+    ragenix
     aether
     hera
   ];
   "hermes_wg0_preshared_key.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "hestia_wg0_key.age".publicKeys = [
     tibs
+    ragenix
     hestia
   ];
   "hestia_wg0_preshared_key.age".publicKeys = [
     tibs
+    ragenix
     aether
     hestia
   ];
   "dionysus_wg0_preshared_key.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "woodpecker_github_client.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "woodpecker_github_secret.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "woodpecker_agent_secret.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "bunny_tls_api_key.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
   "cloudflare_tls_api_key.age".publicKeys = [
     tibs
+    ragenix
     aether
   ];
 }

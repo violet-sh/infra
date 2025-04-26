@@ -134,7 +134,7 @@
           specialArgs = { inherit inputs outputs; };
 
           modules = [
-            ./presets/nixos/common.nix
+            ./presets/nixos
             ./machines/${machine}
           ];
         }

@@ -93,6 +93,8 @@
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         denoland.vscode-deno
+        elixir-lsp.vscode-elixir-ls
+        gleam.gleam
         jnoortheen.nix-ide
         rust-lang.rust-analyzer
         svelte.svelte-vscode

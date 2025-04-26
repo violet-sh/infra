@@ -37,12 +37,14 @@
 
       # Languages
       crates-nvim
+      elixir-tools-nvim
       glow-nvim
       jedi-vim
       nvim-jdtls
       nvim-ts-autotag
       rustaceanvim
       typescript-tools-nvim
+      vim-elixir
       vim-nix
     ];
 

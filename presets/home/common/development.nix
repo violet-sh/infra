@@ -25,6 +25,15 @@
     kraft
     qemu
 
+    # BEAM
+    elixir
+    erlang
+    erlang-language-platform
+    glas
+    gleam
+    gren
+    next-ls
+
     # JavaScript
     deno
     nodejs
