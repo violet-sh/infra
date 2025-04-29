@@ -18,5 +18,6 @@
     ./vencloud.nix
     ./wireguard.nix
     ./woodpecker
+    ./zfs.nix
   ];
 }

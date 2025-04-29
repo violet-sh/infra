@@ -1,26 +1,8 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
-let
-  isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
-  zfsCompatibleKernelPackages = lib.filterAttrs (
-    name: kernelPackages:
-    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
-    && (builtins.tryEval kernelPackages).success
-    && (
-      (!isUnstable && !kernelPackages.zfs.meta.broken)
-      || (isUnstable && !kernelPackages.zfs_unstable.meta.broken)
-    )
-  ) pkgs.linuxKernel.packages;
-  latestKernelPackage = lib.last (
-    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
-      builtins.attrValues zfsCompatibleKernelPackages
-    )
-  );
-in
 {
   ### Module imports
   imports = [
@@ -46,7 +28,6 @@ in
   boot = {
     loader.grub = {
       enable = true;
-      zfsSupport = true;
       efiSupport = true;
       efiInstallAsRemovable = true;
       mirroredBoots = [
@@ -56,8 +37,6 @@ in
         }
       ];
     };
-
-    kernelPackages = latestKernelPackage;
   };
 
   ### Load secrets
@@ -77,6 +56,8 @@ in
 
   ### Modules
   modules = {
+    zfs.enable = true;
+
     wireguard = {
       enable = true;
       ips = [
@@ -91,7 +72,6 @@ in
   services = {
     fwupd.enable = true; # Firmware updater
     thermald.enable = true; # Intel CPU thermal daemon
-    zfs.autoScrub.enable = true; # Run ZFS scrubs automatically
     fprintd.enable = true; # Fingerprint demon
 
     avahi = {
