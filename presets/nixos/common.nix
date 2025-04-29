@@ -109,7 +109,10 @@
   networking = {
     firewall.enable = true;
     nftables.enable = true;
-    search = [ "wg" "as215207.net" ];
+    search = [
+      "wg"
+      "as215207.net"
+    ];
   };
 
   ### Users

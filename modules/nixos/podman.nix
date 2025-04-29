@@ -13,7 +13,7 @@ in
     containers = mkOption {
       type =
         with types;
-        attrsOf (submodule {
+        listOf (submodule {
           image = mkOption {
             type = str;
             description = "The image of your container";

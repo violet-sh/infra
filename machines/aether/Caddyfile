@@ -1,7 +1,5 @@
 {
-	servers {
-		metrics
-	}
+	metrics
 }
 
 (universal) {
@@ -73,6 +71,14 @@ aether.tibs.gay {
 	respond "What are you doing here? :P"
 }
 
+:443, localhost, 10.8.0.1, aether.wg {
+	import universal
+	import security
+	import branding
+	import csp
+	respond "Violet ~ Aether"
+}
+
 git.tibs.gay {
 	import default
 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src * data:; font-src data:; connect-src 'self'"
@@ -99,7 +105,7 @@ ci.tibs.gay {
 
 wiki.tibs.gay {
 	import default
-	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self'; img-src * data:; script-src 'self'"
+	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; img-src * data:; script-src 'self'"
 	header Cross-Origin-Embedder-Policy credentialless
 	reverse_proxy localhost:1737
 }
@@ -130,6 +136,11 @@ watch.tibs.gay {
 	reverse_proxy 10.8.0.5:8096
 }
 
+metrics.tibs.gay {
+	import default
+	reverse_proxy localhost:6000
+}
+
 wings.tibs.gay {
 	import default
 	import csp
@@ -139,6 +150,11 @@ wings.tibs.gay {
 map.tibs.gay {
 	import default
 	reverse_proxy 10.8.0.5:8000
+}
+
+alexia.tibs.gay {
+	import default
+	reverse_proxy 10.8.0.5:5000
 }
 
 is.tibs.gay {
@@ -163,10 +179,4 @@ static.tibs.gay {
 	import cdn
 	root * /home/tibs/caddy/static
 	file_server
-}
-
-cdn.tibs.gay {
-	import default
-	import csp
-	redir https://static.tibs.gay{uri}
 }

@@ -3,11 +3,22 @@
   # Module imports
   imports = [
     # ./hardware-configuration.nix
-
-    ./wireguard.nix
   ];
 
+  age.secrets = {
+    aether_wg0_key.file = ../../secrets/aether_wg0_key.age;
+  };
+
   modules = {
+    wireguard = {
+      enable = true;
+      ips = [
+        "10.8.0.1/16"
+        "fd47:4161:82f9::1/64"
+      ];
+      privateKeyFile = config.age.secrets.aether_wg0_key.path;
+    };
+
     caddy = {
       enable = true;
       metrics = true;

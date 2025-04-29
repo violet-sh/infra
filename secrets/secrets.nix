@@ -73,6 +73,10 @@ in
     ragenix
     aether
   ];
+  "wgautomesh_gossip_secret.age".publicKeys = [
+    tibs
+    ragenix
+  ] ++ systems;
   "woodpecker_github_client.age".publicKeys = [
     tibs
     ragenix

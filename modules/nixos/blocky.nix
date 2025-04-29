@@ -80,6 +80,7 @@ in
           "hestia.wg" = "10.8.0.5";
           "athena.wg" = "10.8.0.6";
           "zephyrus.wg" = "10.8.0.7";
+          "dionysus.wg" = "10.8.0.8";
         };
       };
     };

@@ -56,7 +56,6 @@ in
   ### Load secrets
   age.secrets = {
     hera_wg0_key.file = ../../secrets/hera_wg0_key.age;
-    hera_wg0_preshared_key.file = ../../secrets/hera_wg0_preshared_key.age;
   };
 
   ### Networking
@@ -67,25 +66,17 @@ in
     dhcpcd.enable = false;
     wireless.enable = false;
     networkmanager.enable = true;
+  };
 
-    wireguard.interfaces.wg0 = {
+  ### Modules
+  modules = {
+    wireguard = {
+      enable = true;
       ips = [
         "10.8.0.3/16"
         "fd47:4161:82f9::3/64"
       ];
       privateKeyFile = config.age.secrets.hera_wg0_key.path;
-      peers = [
-        {
-          publicKey = "uQKOe+7uF8Jm+98Uc64sEWJpuLpGH/BykXYySHkW6jg=";
-          presharedKeyFile = config.age.secrets.hera_wg0_preshared_key.path;
-          allowedIPs = [
-            "10.8.0.0/16"
-            "fd47:4161:82f9::/64"
-          ];
-          endpoint = "5.161.106.226:28183";
-          persistentKeepalive = 25;
-        }
-      ];
     };
   };
 
