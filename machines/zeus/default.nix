@@ -44,9 +44,6 @@
   networking = {
     hostName = "zeus";
     hostId = "deadb33f";
-    useDHCP = false;
-    dhcpcd.enable = false;
-    wireless.enable = false;
     networkmanager.enable = true;
   };
 
@@ -66,7 +63,6 @@
 
   ### Services
   services = {
-    fwupd.enable = true; # Firmware updater
     thermald.enable = true; # Intel CPU thermal daemon
     fprintd.enable = true; # Fingerprint demon
 

@@ -19,6 +19,12 @@
         }
       ];
     };
+
+    kernel.sysctl = {
+      "net.ipv4.ip_forward" = 1;
+      "net.ipv6.conf.all.forwarding" = 1;
+      "net.ipv6.conf.all.accept_ra" = 0;
+    };
   };
 
   age.secrets = {
@@ -28,9 +34,6 @@
   networking = {
     hostName = "aether";
     hostId = "ff85a7eb";
-    useDHCP = false;
-    dhcpcd.enable = false;
-    wireless.enable = false;
   };
 
   modules = {
@@ -69,9 +72,5 @@
       orgs = [ "community-tbd" ];
       admin = [ "TibiNonEst" ];
     };
-  };
-
-  services = {
-    fwupd.enable = true; # Firmware updater
   };
 }

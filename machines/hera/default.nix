@@ -37,9 +37,6 @@
   networking = {
     hostName = "hera";
     hostId = "b0cc50d1";
-    useDHCP = false;
-    dhcpcd.enable = false;
-    wireless.enable = false;
     networkmanager.enable = true;
   };
 
@@ -59,8 +56,6 @@
 
   ### Services
   services = {
-    fwupd.enable = true; # Firmware updater
-
     avahi = {
       enable = true;
       nssmdns4 = true;

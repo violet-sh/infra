@@ -9,7 +9,6 @@
     ./grafana.nix
     ./jellyfin.nix
     ./mycorrhiza.nix
-    ./openssh.nix
     ./pelican
     ./podman.nix
     ./prometheus.nix

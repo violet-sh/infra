@@ -7,7 +7,7 @@ in
     enable = mkEnableOption { description = "Enable Blocky"; };
     updateDns = mkOption {
       type = types.bool;
-      description = "Update machine local DNS?";
+      description = "Update machine local DNS";
       default = true;
     };
     upstreams = mkOption {
@@ -15,11 +15,11 @@ in
       description = "List of upstreams for Blocky";
       default = [
         "https://ordns.he.net/dns-query"
-        "https://dns.quad9.net/dns-query"
-        "https://security.cloudflare-dns.com/dns-query"
-        "https://base.dns.mullvad.net/dns-query"
-        "https://freedns.controld.com/p2"
-        "https://dns.adguard-dns.com/dns-query"
+        "https://dns10.quad9.net/dns-query"
+        "https://cloudflare-dns.com/dns-query"
+        "https://dns.mullvad.net/dns-query"
+        "https://freedns.controld.com/p0"
+        "https://unfiltered.adguard-dns.com/dns-query"
       ];
     };
     allowlists = mkOption {
@@ -53,13 +53,15 @@ in
       enable = true;
       settings = {
         upstreams.groups.default = cfg.upstreams;
-        bootstrapDns = {
-          upstream = "https://ordns.he.net/dns-query";
+        bootstrapDns = [{
+          upstream = "https://dns.quad9.net/dns-query";
           ips = [
-            "74.82.42.42"
-            "2001:470:20::2"
+            "9.9.9.9"
+            "149.112.112.112"
+            "2620:fe::fe"
+            "2620:fe::9"
           ];
-        };
+        }];
         blocking = {
           allowlists = {
             default = cfg.allowlists;

@@ -80,6 +80,12 @@
     wget
   ];
 
+  ### Modules
+  modules = {
+    blocky.enable = lib.mkDefault true;
+    chrony.enable = lib.mkDefault true;
+  };
+
   ### Common programs
   programs = {
     htop.enable = true;
@@ -100,15 +106,22 @@
   };
 
   ### Common services
-  modules = {
-    blocky.enable = lib.mkDefault true;
-    chrony.enable = lib.mkDefault true;
+  services = {
+    fwupd.enable = true; # Firmware updater
   };
 
   ### Networking
   networking = {
-    firewall.enable = true;
+    domain = "tibs.gay";
+    useDHCP = false;
+    dhcpcd.enable = false;
     nftables.enable = true;
+
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "wg0" ];
+    };
+
     search = [
       "wg"
       "as215207.net"
