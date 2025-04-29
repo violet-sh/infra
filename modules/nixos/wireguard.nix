@@ -30,7 +30,9 @@ in
             };
           };
         };
-      default = { enable = true; };
+      default = {
+        enable = true;
+      };
     };
     peers = mkOption {
       type =

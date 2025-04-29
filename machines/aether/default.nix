@@ -3,6 +3,8 @@
   # Module imports
   imports = [
     # ./hardware-configuration.nix
+
+    ../../presets/nixos/server.nix
   ];
 
   boot = {
