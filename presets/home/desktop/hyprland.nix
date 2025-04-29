@@ -80,8 +80,9 @@
       "$menu" = "tofi-drun | xargs hyprctl dispatch exec --";
 
       monitor = [
-        ", prefered, auto, 1"
-        ", prefered, auto, 1"
+        "eDP-1, prefered, 0x0, 1"
+        "DP-1, 2560x1440@144, 0x0, 1"
+        "DP-2, prefered, 2560x0, 1"
       ];
 
       general = {
