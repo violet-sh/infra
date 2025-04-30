@@ -84,10 +84,12 @@
   modules = {
     blocky.enable = lib.mkDefault true;
     chrony.enable = lib.mkDefault true;
+    home-manager.enable = lib.mkDefault true;
   };
 
   ### Common programs
   programs = {
+    fish.enable = true;
     htop.enable = true;
     mtr.enable = true;
     nix-ld.enable = true;
@@ -128,20 +130,6 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ"
     ];
-  };
-
-  ### Home Manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs =
-      let
-        age = config.age;
-      in
-      {
-        inherit age inputs;
-      };
-    users.tibs = import ../home;
   };
 
   ### Setup ragenix

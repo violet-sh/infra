@@ -34,6 +34,29 @@
   networking = {
     hostName = "aether";
     hostId = "ff85a7eb";
+    nterfaces.ens3 = {
+      ipv4.addresses = [
+        {
+          address = "162.120.71.136";
+          prefixLength = 24;
+        }
+      ];
+      ipv6.addresses = [
+        {
+          address = "2a0a:8dc0:2000:97::2";
+          prefixLength = 126;
+        }
+      ];
+    };
+
+    defaultGateway = {
+      address = "162.120.71.1";
+      interface = "ens3";
+    };
+    defaultGateway6 = {
+      address = "2a0a:8dc0:2000:97::1";
+      interface = "ens3";
+    };
   };
 
   modules = {

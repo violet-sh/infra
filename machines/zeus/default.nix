@@ -49,6 +49,7 @@
 
   ### Modules
   modules = {
+    home-manager.desktop = true;
     zfs.enable = true;
 
     wireguard = {

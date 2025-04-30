@@ -103,7 +103,7 @@
       ];
 
       eachMachine = nixpkgs.lib.genAttrs [
-        # "aether"
+        "aether"
         "zeus"
         "hera"
         # "hestia"

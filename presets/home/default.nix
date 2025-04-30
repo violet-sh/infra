@@ -7,6 +7,5 @@
     ../../modules/home
 
     ./common
-    ./desktop
   ];
 }

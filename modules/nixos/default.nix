@@ -7,6 +7,7 @@
     ./forgejo.nix
     ./globalping.nix
     ./grafana.nix
+    ./home-manager.nix
     ./jellyfin.nix
     ./mycorrhiza.nix
     ./pelican
