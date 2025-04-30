@@ -2,7 +2,7 @@
 {
   # Module imports
   imports = [
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
 
     ../../presets/nixos/server.nix
   ];

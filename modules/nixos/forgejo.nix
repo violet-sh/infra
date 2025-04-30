@@ -12,6 +12,7 @@ in
   config = lib.mkIf cfg.enable {
     services.forgejo = {
       enable = true;
+      settings.server.HTTP_PORT = cfg.port;
     };
 
     modules.caddy.services.forgejo = {

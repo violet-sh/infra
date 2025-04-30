@@ -77,7 +77,7 @@ in
                   options = {
                     enable = mkEnableOption { description = "Enable meshing with wgautomesh"; };
                     ip = mkOption {
-                      type = string;
+                      type = str;
                       # default = builtins.head (lib.splitString "/" (builtins.head allowedIPs)); # Can't self reference in a rec for options?
                     };
                   };

@@ -14,7 +14,7 @@ in
       enable = true;
       containers.reposilite = {
         image = "dzikoysk/reposilite:latest";
-        ports = [ "${cfg.port}:8080" ];
+        ports = [ "${builtins.toString cfg.port}:8080" ];
         volumes = [ "data:/app/data" ];
       };
     };

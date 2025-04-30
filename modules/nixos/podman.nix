@@ -13,26 +13,26 @@ in
     containers = mkOption {
       type =
         with types;
-        listOf (submodule {
-          image = mkOption {
-            type = str;
-            description = "The image of your container";
+        attrsOf (submodule {
+          options = {
+            image = mkOption {
+              type = str;
+              description = "The image of your container";
+            };
+            ports = mkOption {
+              type = listOf str;
+              description = "The ports your container has bound";
+              default = [ ];
+            };
+            volumes = mkOption {
+              type = listOf str;
+              description = "The volumes your container has bound";
+              default = [ ];
+            };
           };
-          ports = mkOption {
-            type = listOf str;
-            description = "The ports your container has bound";
-            default = [ ];
-          };
-          volumes = mkOption {
-            type = listOf str;
-            description = "The volumes your container has bound";
-            default = [ ];
-          };
-          # TODO: Implement auto update
-          # See: https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html
         });
       description = "Container configurations";
-      default = [ ];
+      default = { };
     };
   };
 

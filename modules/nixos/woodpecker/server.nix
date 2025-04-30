@@ -8,12 +8,12 @@ in
     hostname = mkOption { type = types.str; };
     port = mkOption { type = types.port; };
     orgs = mkOption {
-      type = with types; mkList str;
+      type = with types; listOf str;
       description = "A list of GitHub orgs allowed to log in";
       default = [ ];
     };
     admin = mkOption {
-      type = with types; mkList str;
+      type = with types; listOf str;
       description = "A list of admins";
       default = [ ];
     };
@@ -22,12 +22,12 @@ in
   config = lib.mkIf cfg.enable {
     services.woodpecker-server = {
       enable = true;
-      environment = with lib.strings; {
+      environment = {
         WOODPECKER_OPEN = "true";
-        WOODPECKER_ORGS = concatStringsSep "," cfg.orgs;
-        WOODPECKER_ADMIN = concatStingsSep "," cfg.admin;
-        WOODPECKER_HOST = cfg.hostname;
-        WOODPECKER_SERVER_ADDR = cfg.port;
+        WOODPECKER_ORGS = builtins.concatStringsSep "," cfg.orgs;
+        WOODPECKER_ADMIN = builtins.concatStringsSep "," cfg.admin;
+        WOODPECKER_HOST = "https://${cfg.hostname}";
+        WOODPECKER_SERVER_ADDR = ":${builtins.toString cfg.port}";
         WOODPECKER_GITHUB = "true";
         WOODPECKER_GITHUB_CLIENT_FILE = config.age.secrets.woodpecker_github_client.path;
         WOODPECKER_GITHUB_SECRET_FILE = config.age.secrets.woodpecker_github_secret.path;
