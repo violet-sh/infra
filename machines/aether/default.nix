@@ -34,7 +34,7 @@
   networking = {
     hostName = "aether";
     hostId = "ff85a7eb";
-    nterfaces.ens3 = {
+    interfaces.ens3 = {
       ipv4.addresses = [
         {
           address = "162.120.71.136";
@@ -83,11 +83,11 @@
       port = 2000;
     };
 
-    reposilite = {
-      enable = true;
-      hostname = "maven.tibs.gay";
-      port = 3000;
-    };
+    # reposilite = {
+    #   enable = true;
+    #   hostname = "maven.tibs.gay";
+    #   port = 3000;
+    # };
 
     woodpecker-server = {
       enable = true;
