@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.blocky;
 in
@@ -25,7 +30,11 @@ in
     allowlists = mkOption {
       type = with types; listOf str;
       description = "List of allowlists for Blocky";
-      default = [ "*deno.dev" ];
+      default = [
+        ''${pkgs.writeText "allowlist.txt" ''
+          *.deno.dev
+        ''}''
+      ];
     };
     denylists = mkOption {
       type = with types; listOf str;
@@ -53,15 +62,17 @@ in
       enable = true;
       settings = {
         upstreams.groups.default = cfg.upstreams;
-        bootstrapDns = [{
-          upstream = "https://dns.quad9.net/dns-query";
-          ips = [
-            "9.9.9.9"
-            "149.112.112.112"
-            "2620:fe::fe"
-            "2620:fe::9"
-          ];
-        }];
+        bootstrapDns = [
+          {
+            upstream = "https://dns.quad9.net/dns-query";
+            ips = [
+              "9.9.9.9"
+              "149.112.112.112"
+              "2620:fe::fe"
+              "2620:fe::9"
+            ];
+          }
+        ];
         blocking = {
           allowlists = {
             default = cfg.allowlists;

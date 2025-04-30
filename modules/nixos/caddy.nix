@@ -13,7 +13,7 @@ in
     services = mkOption {
       type =
         with types;
-        attrsOf (submodule {
+        listOf (submodule {
           hostname = mkOption {
             type = str;
             description = "The hostname of this virtual host";
@@ -46,6 +46,10 @@ in
       description = "Whether to enable metrics on Caddy";
       default = false;
     };
+    configFile = mkOption {
+      type = types.path;
+      description = "Path to Caddyfile";
+    };
     extraConfig = mkOption {
       type = types.lines;
       description = "Extra config to add to the created Caddyfile";
@@ -58,10 +62,10 @@ in
       enable = true;
       package = pkgs.caddy.withPlugins {
         plugins = [
-          "github.com/caddy-dns/bunny@v0.1.0"
-          "github.com/caddy-dns/cloudflare@89f16b99c18ef49c8bb470a82f895bce01cbaece"
+          # "github.com/caddy-dns/bunny@v1.1.3"
+          "github.com/caddy-dns/cloudflare@v0.2.1"
         ];
-        hash = lib.fakeHash;
+        hash = "sha256-saKJatiBZ4775IV2C5JLOmZ4BwHKFtRZan94aS5pO90=";
       };
       globalConfig = lib.mkIf cfg.metrics ''
         {
@@ -70,6 +74,7 @@ in
           }
         }
       '';
+      configFile = cfg.configFile;
       extraConfig = cfg.extraConfig;
     };
 
