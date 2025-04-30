@@ -29,11 +29,14 @@ in
           inherit age inputs desktop;
         };
       users.tibs =
-        {  desktop, ... }:
+        { desktop, ... }:
         {
           imports =
             if desktop then
-              [ ../../presets/home ../../presets/home/desktop ]
+              [
+                ../../presets/home
+                ../../presets/home/desktop
+              ]
             else
               [ ../../presets/home ];
         };
