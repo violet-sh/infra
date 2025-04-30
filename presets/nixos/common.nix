@@ -115,17 +115,9 @@
     domain = "tibs.gay";
     useDHCP = false;
     dhcpcd.enable = false;
+    firewall.enable = true;
     nftables.enable = true;
-
-    firewall = {
-      enable = true;
-      trustedInterfaces = [ "wg0" ];
-    };
-
-    search = [
-      "wg"
-      "as215207.net"
-    ];
+    search = [ "as215207.net" ];
   };
 
   ### Users

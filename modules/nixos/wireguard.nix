@@ -11,6 +11,10 @@ in
       type = types.port;
       default = 51820;
     };
+    interfaceName = mkOption {
+      type = types.str;
+      default = "wg0";
+    };
     privateKey = mkOption {
       type = with types; nullOr str;
       default = null;
@@ -87,24 +91,29 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    networking.wireguard.interfaces.wg0 = {
-      ips = cfg.ips;
-      privateKey = cfg.privateKey;
-      privateKeyFile = cfg.privateKeyFile;
-      listenPort = cfg.port;
-      peers =
-        let
-          filtered_peers = builtins.filter (peer: hostname == "aether" || peer.name == "aether") cfg.peers; # Distribute peers in hub to begin with
-          peers = builtins.map (peer: builtins.removeAttrs peer [ "mesh" ]) filtered_peers;
-        in
-        peers;
+    networking = {
+      wireguard.interfaces.${cfg.interfaceName} = {
+        ips = cfg.ips;
+        privateKey = cfg.privateKey;
+        privateKeyFile = cfg.privateKeyFile;
+        listenPort = cfg.port;
+        peers =
+          let
+            filtered_peers = builtins.filter (peer: hostname == "aether" || peer.name == "aether") cfg.peers; # Distribute peers in hub to begin with
+            peers = builtins.map (peer: builtins.removeAttrs peer [ "mesh" ]) filtered_peers;
+          in
+          peers;
+      };
+
+      firewall.trustedInterfaces = [ (cfg.interfaceName) ];
+      search = [ "wg" ];
     };
 
     services.wgautomesh = lib.mkIf cfg.mesh.enable {
       enable = true;
       gossipSecretFile = cfg.mesh.gossipSecretFile;
       settings = {
-        interface = "wg0";
+        interface = cfg.interfaceName;
         peers =
           let
             peers = builtins.map (peer: {
