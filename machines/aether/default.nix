@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   # Module imports
   imports = [
@@ -10,14 +10,7 @@
   boot = {
     loader.grub = {
       enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-      mirroredBoots = [
-        {
-          devices = [ "nodev" ];
-          path = "/boot";
-        }
-      ];
+      device = "/dev/vda";
     };
 
     kernel.sysctl = {
@@ -60,8 +53,6 @@
   };
 
   modules = {
-    zfs.enable = true;
-
     wireguard = {
       enable = true;
       ips = [
