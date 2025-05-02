@@ -2,7 +2,6 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  config,
   lib,
   modulesPath,
   ...
@@ -24,30 +23,11 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "zroot/root";
-    fsType = "zfs";
+    device = "/dev/disk/by-uuid/ca439c12-da7e-4221-bf89-83c1cbf56890";
+    fsType = "ext4";
   };
 
-  fileSystems."/nix" = {
-    device = "zroot/nix";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home" = {
-    device = "zroot/home";
-    fsType = "zfs";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2A04-B098";
-    fsType = "vfat";
-    options = [
-      "dmask=0077"
-      "fmask=0077"
-    ];
-  };
-
-  swapDevices = [ { device = "/dev/disk/by-uuid/75e1840d-e7b5-4801-a8c6-203759a9e317"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/01f2ebfb-6b03-42f9-8585-fed5121c3b82"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -57,5 +37,4 @@
   # networking.interfaces.ens3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
