@@ -97,6 +97,8 @@
         gleam.gleam
         jnoortheen.nix-ide
         rust-lang.rust-analyzer
+        ms-python.debugpy
+        ms-python.python
         svelte.svelte-vscode
         tamasfe.even-better-toml
         vadimcn.vscode-lldb
