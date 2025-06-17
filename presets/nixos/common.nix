@@ -19,12 +19,6 @@
       dates = [ "weekly" ];
     };
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
     settings = {
       experimental-features = [
         "nix-command"
@@ -103,6 +97,14 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+    };
+
+    nh = {
+      enable = true;
+      flake = "/home/tibs/infra"; # This doesn't seem to show up as `NH_FLAKE`, maybe a fish problem?
+      clean = {
+        enable = true;
+      };
     };
   };
 

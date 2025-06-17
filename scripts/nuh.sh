@@ -68,14 +68,13 @@ case "$verb" in
 	switch|s)
 		cd $dir
 		rm -f ~/.cache/tofi-drun # Grrrrr Tofi needs this to be cleared
-		exec $sudo nixos-rebuild switch "$@"
+		exec $sudo nh os switch /home/tibs/infra "$@"
 		;;
 	upgrade|up|u)
-		$0 update
-		exec $0 switch
+		exec $0 switch --update
 		;;
 	clean|gc)
-		exec $sudo nix store gc "$@"
+		exec $sudo nh clean all "$@"
 		;;
 	shrink|optimise|optimize)
 		exec $sudo nix store optimise "$@"
