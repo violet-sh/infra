@@ -7,7 +7,7 @@
     playerctl
     slurp
     wayland-pipewire-idle-inhibit
-    wl-clipboard
+    wl-clipboard-rs
     wl-clip-persist
   ];
 
