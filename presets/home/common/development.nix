@@ -31,7 +31,6 @@
     erlang-language-platform
     glas
     gleam
-    gren
     next-ls
 
     # JavaScript
