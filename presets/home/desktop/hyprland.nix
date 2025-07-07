@@ -145,7 +145,7 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
 
         "$mod SHIFT, N, exec, swaync-client -t -sw"
-        ''$mod, PRINT, exec, grim -g "$(slurp)" - | wl-copy''
+        ''$mod, PRINT, exec, grim -g "$(slurp)" - | wl-copy -t image/png''
         ''$mod SHIFT, PRINT, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +%F\_%H.%M.%S).png''
         "$mod, C, exec, hyprpicker | wl-copy"
       ];
