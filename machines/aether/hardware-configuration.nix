@@ -29,7 +29,11 @@
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/B396-C22A";
-    fsType = "ext4";
+    fsType = "vfat";
+    options = [
+      "dmask=0077"
+      "fmask=0077"
+    ];
   };
 
   swapDevices = [ { device = "/dev/disk/by-uuid/d7e07d52-fa7a-494c-b841-249c73ea7751"; } ];
