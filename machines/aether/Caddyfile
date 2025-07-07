@@ -24,13 +24,13 @@
 
 (bunny) {
 	tls {
-		dns bunny @bunny_tls_api_key@
+		dns bunny {$BUNNY_API_KEY}
 	}
 }
 
 (cloudflare) {
 	tls {
-		dns cloudflare @cloudflare_tls_api_key@
+		dns cloudflare {$CLOUDFLARE_API_KEY}
 	}
 }
 

@@ -76,6 +76,8 @@ in
       '';
       configFile = cfg.configFile;
       extraConfig = cfg.extraConfig;
+      BUNNY_API_KEY = builtins.readFile config.age.secrets.bunny_tls_api_key.path;
+      CLOUDFLARE_API_KEY = builtins.readFile config.age.secrets.cloudflare_tls_api_key_tls_api_key.path;
     };
 
     # Load in age secrets
@@ -83,13 +85,5 @@ in
       bunny_tls_api_key.file = ../../secrets/bunny_tls_api_key.age;
       cloudflare_tls_api_key.file = ../../secrets/cloudflare_tls_api_key.age;
     };
-
-    # Load in Caddy secrets
-    system.activationScripts."caddy-secrets" = ''
-      bunny_tls_api_key=$(cat "${config.age.secrets.bunny_tls_api_key.path}")
-      cloudflare_tls_api_key=$(cat "${config.age.secrets.cloudflare_tls_api_key.path}")
-      configFile=${config.services.caddy.configFile}
-      ${pkgs.gnused}/bin/sed -i "s/@bunny_tls_api_key@/$bunny_tls_api_key/;s/@cloudflare_tls_api_key@/$cloudflare_tls_api_key/" "$configFile"
-    '';
   };
 }
