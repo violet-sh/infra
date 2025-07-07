@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.modules.reposilite;
+  cfg = config.modules.sftpgo;
 in
 {
-  options.modules.reposilite = with lib; {
+  options.modules.sftpgo = with lib; {
     enable = mkEnableOption { description = "Enable SFTPgo"; };
     hostname = mkOption { type = types.str; };
     port = mkOption { type = types.port; };
