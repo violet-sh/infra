@@ -42,6 +42,7 @@
 
       # Jetbrains
       jetbrains.clion
+      jetbrains.datagrip
       jetbrains.goland
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
