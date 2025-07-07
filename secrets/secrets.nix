@@ -92,6 +92,11 @@ in
     ragenix
     aether
   ];
+  "caddy_env.age".publicKeys = [
+    tibs
+    ragenix
+    aether
+  ];
   "bunny_tls_api_key.age".publicKeys = [
     tibs
     ragenix

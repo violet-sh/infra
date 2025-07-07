@@ -76,14 +76,14 @@ in
       '';
       configFile = cfg.configFile;
       extraConfig = cfg.extraConfig;
-      BUNNY_API_KEY = builtins.readFile config.age.secrets.bunny_tls_api_key.path;
-      CLOUDFLARE_API_KEY = builtins.readFile config.age.secrets.cloudflare_tls_api_key_tls_api_key.path;
+      environmentFile = config.age.secrets.caddy_env.path;
     };
 
     # Load in age secrets
     age.secrets = {
-      bunny_tls_api_key.file = ../../secrets/bunny_tls_api_key.age;
-      cloudflare_tls_api_key.file = ../../secrets/cloudflare_tls_api_key.age;
+      # bunny_tls_api_key.file = ../../secrets/bunny_tls_api_key.age;
+      # cloudflare_tls_api_key.file = ../../secrets/cloudflare_tls_api_key.age;
+      caddy_env.file = ../../secrets/caddy_env.age;
     };
   };
 }
