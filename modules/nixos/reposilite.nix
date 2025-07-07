@@ -10,13 +10,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    modules.podman = {
+    services.reposilite = {
       enable = true;
-      containers.reposilite = {
-        image = "dzikoysk/reposilite:latest";
-        ports = [ "${builtins.toString cfg.port}:8080" ];
-        volumes = [ "data:/app/data" ];
-      };
+      settings.port = cfg.port;
     };
 
     modules.caddy.services.reposilite = {

@@ -74,11 +74,18 @@
       port = 2000;
     };
 
-    # reposilite = {
-    #   enable = true;
-    #   hostname = "maven.tibs.gay";
-    #   port = 3000;
-    # };
+    reposilite = {
+      enable = true;
+      hostname = "maven.tibs.gay";
+      port = 3000;
+    };
+
+    sftpgo = {
+      enable = true;
+      hostname = "vault.tibs.gay";
+      port = 8000;
+      sftp_port = 2122;
+    };
 
     woodpecker-server = {
       enable = true;
