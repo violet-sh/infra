@@ -62,10 +62,10 @@ in
       enable = true;
       package = pkgs.caddy.withPlugins {
         plugins = [
-          # "github.com/caddy-dns/bunny@v1.1.3"
+          "github.com/caddy-dns/bunny@v1.2.0"
           "github.com/caddy-dns/cloudflare@v0.2.1"
         ];
-        hash = "sha256-saKJatiBZ4775IV2C5JLOmZ4BwHKFtRZan94aS5pO90=";
+        hash = "sha256-uilJaEJVzKylNcCB4bKGr+65NkPMHpB0WS1qX6ue7S0=";
       };
       globalConfig = lib.mkIf cfg.metrics ''
         {
