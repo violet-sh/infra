@@ -14,8 +14,12 @@ in
     services.sftpgo = {
       enable = true;
       settings = {
-        httpd.bindings.ens3.port = 8000;
-        sftpd.bindings.ens3.port = 2122;
+        httpd.bindings = [{
+            port = 8000;
+          }];
+        sftpd.bindings = [{
+          port = 2122;
+        }];
       };
     };
 
