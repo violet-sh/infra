@@ -79,6 +79,8 @@ in
       environmentFile = config.age.secrets.caddy_env.path;
     };
 
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
+
     # Load in age secrets
     age.secrets = {
       # bunny_tls_api_key.file = ../../secrets/bunny_tls_api_key.age;
