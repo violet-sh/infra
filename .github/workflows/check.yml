@@ -1,0 +1,20 @@
+name: Check Flake
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: nixbuild/nix-quick-install-action@v32
+      - name: Run Checks
+        run: nix flake check

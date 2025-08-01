@@ -1,0 +1,26 @@
+name: Format Flake
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: nixbuild/nix-quick-install-action@v32
+      - name: Format flake
+        run: nix fmt .
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Auto-format Flake
+          commit_user_name: Format Bot
+          commit_user_email: actions@github.com
+          commit_author: Format Bot <actions@github.com>

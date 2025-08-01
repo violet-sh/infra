@@ -1,0 +1,27 @@
+name: Auto Update Flake
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: nixbuild/nix-quick-install-action@v32
+      - name: Update flake
+        run: nix flake update
+      - name: Check flake
+        run: nix flake check
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Auto-update Flake
+          commit_user_name: Update Bot
+          commit_user_email: actions@github.com
+          commit_author: Update Bot <actions@github.com>
