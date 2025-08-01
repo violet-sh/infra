@@ -79,7 +79,10 @@ in
       environmentFile = config.age.secrets.caddy_env.path;
     };
 
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
 
     # Load in age secrets
     age.secrets = {

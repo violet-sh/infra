@@ -14,12 +14,16 @@ in
     services.sftpgo = {
       enable = true;
       settings = {
-        httpd.bindings = [{
+        httpd.bindings = [
+          {
             port = 8000;
-          }];
-        sftpd.bindings = [{
-          port = 2122;
-        }];
+          }
+        ];
+        sftpd.bindings = [
+          {
+            port = 2122;
+          }
+        ];
       };
     };
 
