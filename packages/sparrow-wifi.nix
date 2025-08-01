@@ -6,6 +6,7 @@
 python3Packages.buildPythonApplication {
   pname = "sparrow-wifi";
   version = "b6018c5";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "ghostop14";
@@ -13,6 +14,8 @@ python3Packages.buildPythonApplication {
     rev = "b6018c5";
     hash = "sha256-0CWk6YQgbnwF5NWJsZEpHGlZ6DdH/lcGamBxHg2pa+Y=";
   };
+
+  build-system = with python3Packages; [ setuptools ];
 
   propagatedBuildInputs = with pkgs; [
     iw
