@@ -2,7 +2,8 @@
 {
   programs.firefox = {
     enable = true;
-    profiles.tibs = {
+    profiles.default = {
+      extensions.force = true;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         behave
         betterttv
