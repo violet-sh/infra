@@ -24,8 +24,7 @@ in
   "ragenix_key.age".publicKeys = [
     tibs
     ragenix
-  ]
-  ++ systems;
+  ] ++ systems;
   "aether_wg0_key.age".publicKeys = [
     tibs
     ragenix
@@ -77,8 +76,7 @@ in
   "wgautomesh_gossip_secret.age".publicKeys = [
     tibs
     ragenix
-  ]
-  ++ systems;
+  ] ++ systems;
   "woodpecker_github_client.age".publicKeys = [
     tibs
     ragenix
