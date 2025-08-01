@@ -90,20 +90,38 @@
       enable = true;
       package = pkgs.vscodium;
       profiles.default.extensions = with pkgs.vscode-extensions; [
+        # ardenivanov.svelte-intellisense
         astro-build.astro-vscode
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
+        christian-kohler.path-intellisense
+        codezombiech.gitignore
+        davidlday.languagetool-linter
+        dbaeumer.vscode-eslint
         denoland.vscode-deno
+        eamodio.gitlens
         elixir-lsp.vscode-elixir-ls
+        esbenp.prettier-vscode
+        github.vscode-github-actions
         gleam.gleam
+        golang.go
         jnoortheen.nix-ide
-        rust-lang.rust-analyzer
+        llvm-vs-code-extensions.vscode-clangd
+        mkhl.direnv
         ms-python.debugpy
         ms-python.python
+        ms-toolsai.jupyter
+        ms-vscode.cpptools
+        ms-vscode.cmake-tools
+        # oscarotero.vento-syntax
+        rust-lang.rust-analyzer
+        # slevesque.shader
         svelte.svelte-vscode
         tamasfe.even-better-toml
+        unifiedjs.vscode-mdx
         vadimcn.vscode-lldb
         vscjava.vscode-java-pack
+        yzhang.markdown-all-in-one
       ];
     };
   };
