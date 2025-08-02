@@ -59,17 +59,17 @@
 	import branding
 }
 
-aether.tibinonest.me {
-	import cf
-	import csp
-	redir https://aether.tibs.gay{uri}
-}
+// aether.tibinonest.me {
+// 	import cf
+// 	import csp
+// 	redir https://aether.tibs.gay{uri}
+// }
 
-aether.tibs.gay {
-	import default
-	import csp
-	respond "What are you doing here? :P"
-}
+// aether.tibs.gay {
+// 	import default
+// 	import csp
+// 	respond "What are you doing here? :P"
+// }
 
 :443, localhost, 10.8.0.1 {
 	import universal
@@ -79,83 +79,63 @@ aether.tibs.gay {
 	respond "Violet ~ Aether"
 }
 
-git.tibs.gay {
-	import default
-	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src * data:; font-src data:; connect-src 'self'"
-	header Cross-Origin-Embedder-Policy credentialless
-	reverse_proxy localhost:3000
-}
+// git.tibs.gay {
+// 	import default
+// 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src * data:; font-src data:; connect-src 'self'"
+// 	header Cross-Origin-Embedder-Policy credentialless
+// 	reverse_proxy localhost:3000
+// }
 
-maven.tibs.gay {
-	import default
-	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://static.tibs.gay; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-eval'; connect-src 'self'"
-	reverse_proxy localhost:2000
-}
+// maven.tibs.gay {
+// 	import default
+// 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://static.tibs.gay; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-eval'; connect-src 'self'"
+// 	reverse_proxy localhost:2000
+// }
 
-panel.tibs.gay {
-	import default
-	header Cross-Origin-Embedder-Policy credentialless
-	reverse_proxy localhost:4000
-}
+// panel.tibs.gay {
+// 	import default
+// 	header Cross-Origin-Embedder-Policy credentialless
+// 	reverse_proxy localhost:4000
+// }
 
-ci.tibs.gay {
-	import default
-	reverse_proxy localhost:9000
-}
+// ci.tibs.gay {
+// 	import default
+// 	reverse_proxy localhost:9000
+// }
 
-wiki.tibs.gay {
-	import default
-	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; img-src * data:; script-src 'self'"
-	header Cross-Origin-Embedder-Policy credentialless
-	reverse_proxy localhost:1737
-}
+// wiki.tibs.gay {
+// 	import default
+// 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline'; img-src * data:; script-src 'self'"
+// 	header Cross-Origin-Embedder-Policy credentialless
+// 	reverse_proxy localhost:1737
+// }
 
-vault.tibs.gay {
-	import default
-	reverse_proxy localhost:8000
-}
+// vault.tibs.gay {
+// 	import default
+// 	reverse_proxy localhost:8000
+// }
 
-vencord.tibs.gay {
-	import default
-	import csp
-	reverse_proxy localhost:5000
-}
+// vencord.tibs.gay {
+// 	import default
+// 	import csp
+// 	reverse_proxy localhost:5000
+// }
 
-foxel.group {
-	import universal
-	reverse_proxy localhost:10000
-}
+// watch.tibs.gay {
+// 	import default
+// 	reverse_proxy 10.8.0.5:8096
+// }
 
-devlog.foxel.group {
-	import universal
-	reverse_proxy localhost:10000
-}
+// metrics.tibs.gay {
+// 	import default
+// 	reverse_proxy localhost:6000
+// }
 
-watch.tibs.gay {
-	import default
-	reverse_proxy 10.8.0.5:8096
-}
-
-metrics.tibs.gay {
-	import default
-	reverse_proxy localhost:6000
-}
-
-wings.tibs.gay {
-	import default
-	import csp
-	reverse_proxy 10.8.0.5:8080
-}
-
-map.tibs.gay {
-	import default
-	reverse_proxy 10.8.0.5:8000
-}
-
-alexia.tibs.gay {
-	import default
-	reverse_proxy 10.8.0.5:5000
-}
+// wings.tibs.gay {
+// 	import default
+// 	import csp
+// 	reverse_proxy 10.8.0.5:8080
+// }
 
 is.tibs.gay {
 	import default
@@ -165,23 +145,18 @@ is.tibs.gay {
 	rewrite * /is.tibs.gay.html
 }
 
-open-vt-welcome.tibs.gay {
-	import default
-	import csp
-	root * /home/tibs/caddy
-	file_server
-	rewrite * /welcome.yaml
-}
+// open-vt-welcome.tibs.gay {
+// 	import default
+// 	import csp
+// 	root * /home/tibs/caddy
+// 	file_server
+// 	rewrite * /welcome.yaml
+// }
 
-static.tibs.gay {
-	import default
-	import csp
-	import cdn
-	root * /home/tibs/caddy/static
-	file_server
-}
-
-testing.signaling.teamvulpine.com {
-	import universal
-	reverse_proxy 10.8.0.5:25680
-}
+// static.tibs.gay {
+// 	import default
+// 	import csp
+// 	import cdn
+// 	root * /home/tibs/caddy/static
+// 	file_server
+// }

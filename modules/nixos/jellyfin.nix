@@ -15,7 +15,7 @@ in
     };
 
     modules.caddy.services.jellyfin = {
-      hostname = cfg.hostna1me;
+      hostname = cfg.hostname;
       port = cfg.port;
     };
   };

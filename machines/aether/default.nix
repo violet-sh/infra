@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
 
     ../../presets/nixos/server.nix
+
+    ./caddy.nix
   ];
 
   boot = {
@@ -69,38 +71,64 @@
       privateKeyFile = config.age.secrets.aether_wg0_key.path;
     };
 
-    caddy = {
-      enable = true;
-      metrics = true;
-      configFile = ./Caddyfile;
-    };
-
+    ### Web services
     forgejo = {
       enable = true;
       hostname = "git.tibs.gay";
-      port = 2000;
+      port = 2001;
     };
 
     reposilite = {
       enable = true;
       hostname = "maven.tibs.gay";
-      port = 3000;
+      port = 2002;
     };
 
-    sftpgo = {
-      enable = true;
-      hostname = "vault.tibs.gay";
-      port = 8000;
-      sftp_port = 2122;
-    };
+    # pelican = {
+    #   enable = true;
+    #   hostname = "panel.tibs.gay";
+    #   port = 2003;
+    #   wings_port = 2004;
+    # };
 
     woodpecker-server = {
       enable = true;
       hostname = "ci.tibs.gay";
-      port = 4000;
+      port = 2005;
       orgs = [ "community-tbd" ];
       admin = [ "TibiNonEst" ];
     };
+
+    # mycorrhiza = {
+    #   enable = true;
+    #   hostname = "wiki.tibs.gay";
+    #   port = 2006;
+    # };
+
+    sftpgo = {
+      enable = true;
+      hostname = "vault.tibs.gay";
+      port = 2007;
+      sftp_port = 2122;
+    };
+
+    # vencloud = {
+    #   enable = true;
+    #   hostname = "vencord.tibs.gay";
+    #   port = 2008;
+    # };
+
+    # jellyfin = {
+    #   enable = true;
+    #   hostname = "watch.tibs.gay";
+    #   port = 2009;
+    # };
+
+    # grafana = {
+    #   enable = true;
+    #   hostname = "metrics.tibs.gay";
+    #   port = 2010;
+    # };
   };
 
   # ======================== DO NOT CHANGE THIS ========================

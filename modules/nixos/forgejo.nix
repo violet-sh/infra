@@ -16,7 +16,7 @@ in
     };
 
     modules.caddy.services.forgejo = {
-      hostname = cfg.hostna1me;
+      hostname = cfg.hostname;
       port = cfg.port;
     };
   };
