@@ -1,4 +1,9 @@
-{ lib, pkgs, desktop, ... }:
+{
+  lib,
+  pkgs,
+  desktop,
+  ...
+}:
 {
   catppuccin = {
     enable = true;
