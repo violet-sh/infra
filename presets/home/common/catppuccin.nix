@@ -1,4 +1,4 @@
-{ lib, desktop, ... }:
+{ lib, pkgs, desktop, ... }:
 {
   catppuccin = {
     enable = true;
@@ -6,6 +6,15 @@
     flavor = "macchiato";
 
     cursors.enable = lib.mkIf desktop true;
+
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-GTK-Dark";
+      package = pkgs.magnetic-catppuccin-gtk;
+    };
   };
 
   qt = lib.mkIf desktop {
