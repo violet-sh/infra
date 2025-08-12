@@ -92,8 +92,6 @@
       profiles.default.extensions = with pkgs.vscode-extensions; [
         # ardenivanov.svelte-intellisense
         astro-build.astro-vscode
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
         christian-kohler.path-intellisense
         codezombiech.gitignore
         davidlday.languagetool-linter
