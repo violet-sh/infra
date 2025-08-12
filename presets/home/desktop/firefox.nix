@@ -9,6 +9,7 @@
         betterttv
         bitwarden
         capital-one-eno
+        catppuccin-web-file-icons
         duckduckgo-privacy-essentials
         fastforwardteam
         firefox-color
