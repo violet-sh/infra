@@ -14,16 +14,16 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 - `secrets` - Age-encrypted secrets
 
 ## Machines
-| Hostname | WireGuard IP | Description |
-|----------|--------------|-------------|
-| Aether   | 10.8.0.1     | Primary VPS |
-| Zeus     | 10.8.0.2     | Laptop      |
-| Hera     | 10.8.0.3     | Desktop     |
-| Hermes   | 10.8.0.4     | Phone       |
-| Hestia   | 10.8.0.5     | Home NAS    |
-| Athena   | 10.8.0.6     | Uni NAS     |
-| Zephyrus | 10.8.0.7     | Backup VPS  |
-| Dionysus | 10.8.0.8     | Tablet      |
+| Hostname | WireGuard IP | OS     | Description             |
+|----------|--------------|--------|-------------------------|
+| Aether   | 10.8.0.1     | NixOS  | Primary VPS (Clouvider) |
+| Zeus     | 10.8.0.2     | NixOS  | Laptop                  |
+| Hera     | 10.8.0.3     | NixOS  | Desktop                 |
+| Hermes   | 10.8.0.4     | iOS    | Phone                   |
+| Hestia   | 10.8.0.5     | NixOS  | Home NAS                |
+| Athena   | 10.8.0.6     | NixOS  | Uni NAS                 |
+| Zephyrus | 10.8.0.7     | NixOS  | Backup VPS (zfs.rent)   |
+| Dionysus | 10.8.0.8     | iPadOS | Tablet                  |
 
 ### Other hosts
 - Eos: DNS nameserver 1
