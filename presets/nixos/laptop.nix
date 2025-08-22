@@ -2,13 +2,6 @@
 {
   imports = [ ./desktop.nix ];
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-  };
-
   powerManagement = {
     enable = true;
     powertop.enable = true;

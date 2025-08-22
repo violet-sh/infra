@@ -2,7 +2,14 @@
 {
   imports = [ ./hyprland.nix ];
 
-  hardware.graphics.enable = true;
+  hardware = {
+    graphics.enable = true;
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
   catppuccin.enable = true;
 

@@ -41,6 +41,7 @@
       zoom-us
 
       # Jetbrains
+      android-studio
       jetbrains.clion
       jetbrains.datagrip
       jetbrains.goland
