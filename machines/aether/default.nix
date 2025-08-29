@@ -74,26 +74,26 @@
     ### Web services
     forgejo = {
       enable = true;
-      hostname = "git.tibs.gay";
+      hostname = "git.violet.sh";
       port = 2001;
     };
 
     reposilite = {
       enable = true;
-      hostname = "maven.tibs.gay";
+      hostname = "maven.violet.sh";
       port = 2002;
     };
 
     # pelican = {
     #   enable = true;
-    #   hostname = "panel.tibs.gay";
+    #   hostname = "panel.violet.sh";
     #   port = 2003;
     #   wings_port = 2004;
     # };
 
     woodpecker-server = {
       enable = true;
-      hostname = "ci.tibs.gay";
+      hostname = "ci.violet.sh";
       port = 2005;
       orgs = [ "community-tbd" ];
       admin = [ "TibiNonEst" ];
@@ -101,32 +101,32 @@
 
     # mycorrhiza = {
     #   enable = true;
-    #   hostname = "wiki.tibs.gay";
+    #   hostname = "wiki.violet.sh";
     #   port = 2006;
     # };
 
     sftpgo = {
       enable = true;
-      hostname = "vault.tibs.gay";
+      hostname = "vault.violet.sh";
       port = 2007;
       sftp_port = 2122;
     };
 
     # vencloud = {
     #   enable = true;
-    #   hostname = "vencord.tibs.gay";
+    #   hostname = "vencord.violet.sh";
     #   port = 2008;
     # };
 
     # jellyfin = {
     #   enable = true;
-    #   hostname = "watch.tibs.gay";
+    #   hostname = "watch.violet.sh";
     #   port = 2009;
     # };
 
     # grafana = {
     #   enable = true;
-    #   hostname = "metrics.tibs.gay";
+    #   hostname = "metrics.violet.sh";
     #   port = 2010;
     # };
   };

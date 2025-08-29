@@ -100,8 +100,8 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userName = "tibs";
-      userEmail = "tibs@tibinonest.me";
+      userName = "violet";
+      userEmail = "vi@violet.sh";
       signing = {
         key = "047833989F50F88F";
         signByDefault = true;
