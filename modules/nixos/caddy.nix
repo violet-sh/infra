@@ -65,7 +65,7 @@ in
           "github.com/caddy-dns/bunny@v1.2.0"
           "github.com/caddy-dns/cloudflare@v0.2.1"
         ];
-        hash = "sha256-uilJaEJVzKylNcCB4bKGr+65NkPMHpB0WS1qX6ue7S0=";
+        hash = "sha256-wuHzb0jorEYkG3mo3392MS9txf2isfnXxiNCK2u20Ug=";
       };
       globalConfig = lib.mkIf cfg.metrics ''
         {

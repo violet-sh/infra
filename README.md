@@ -1,4 +1,4 @@
-# Tibs' infra
+# Violet's infra
 
 My personal NixOS-based infrastructure
 
@@ -8,6 +8,7 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 ## Directories
 - `machines` - Configuration files for NixOS machines
 - `modules` - Custom modules for Home Manager and NixOS
+- `overlays` - Custom overlays for including custom packages
 - `packages` - Custom packages not in nixpkgs
 - `presets` - Presets for Home Manager and NixOS
 - `scripts` - Helper scripts for finished systems
