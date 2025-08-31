@@ -51,13 +51,6 @@
       jetbrains.rust-rover
       jetbrains.webstorm
 
-      # OBS
-      obs-studio
-      obs-studio-plugins.wlrobs
-      obs-studio-plugins.obs-vkcapture
-      obs-studio-plugins.obs-webkitgtk
-      obs-studio-plugins.obs-pipewire-audio-capture
-
       # Misc
       networkmanagerapplet
     ];
@@ -85,6 +78,16 @@
 
     ghostty = {
       enable = true;
+    };
+
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-vkcapture
+        obs-webkitgtk
+        obs-pipewire-audio-capture
+      ];
     };
 
     vscode = {
