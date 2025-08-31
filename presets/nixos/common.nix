@@ -133,6 +133,9 @@
     ];
   };
 
+  ### Add local bin to PATH
+  environment.localBinInPath = true;
+
   ### Setup ragenix
   age = {
     identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
