@@ -85,7 +85,6 @@
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs
         obs-vkcapture
-        obs-webkitgtk
         obs-pipewire-audio-capture
       ];
     };
