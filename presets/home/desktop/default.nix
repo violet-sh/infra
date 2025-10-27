@@ -28,6 +28,7 @@
       newsflash
       prismlauncher
       pwvucontrol
+      signal-desktop
       simplex-chat-desktop
       slack
       sparrow-wifi

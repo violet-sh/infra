@@ -10,6 +10,10 @@
   networking.networkmanager.wifi.powersave = true;
 
   services = {
+    logind = {
+      powerKey = "suspend";
+    };
+
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;
