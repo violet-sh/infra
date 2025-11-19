@@ -98,7 +98,6 @@
 
       input = {
         kb_model = "pc104";
-        kb_options = "kb_options";
         natural_scroll = true;
 
         touchpad = {
@@ -108,6 +107,10 @@
         };
       };
 
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, D, exec, $menu"
@@ -116,6 +119,7 @@
         "$mod SHIFT, Q, killactive"
         "$mod SHIFT, E, exit"
         "$mod, F, fullscreen"
+        "$mod, W, togglefloating"
 
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
@@ -153,6 +157,7 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
       ];
 
       # Requires avizo
