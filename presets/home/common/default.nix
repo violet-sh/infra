@@ -100,8 +100,14 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userName = "violet";
-      userEmail = "vi@violet.sh";
+
+      settings = {
+        user ={
+          name = "violet";
+          email = "vi@violet.sh";
+        };
+      };
+
       signing = {
         key = "047833989F50F88F";
         signByDefault = true;
@@ -110,9 +116,20 @@
 
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
+
       matchBlocks = {
-        default = {
-          host = "*";
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          compression = false;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          userKnownHostsFile = "~/.ssh/known_hosts";
+          controlMaster = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
           setEnv = {
             TERM = "xterm-color";
           };

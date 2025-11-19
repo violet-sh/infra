@@ -10,9 +10,7 @@
   networking.networkmanager.wifi.powersave = true;
 
   services = {
-    logind = {
-      powerKey = "suspend";
-    };
+    logind.settings.Login.HandlePowerKey = "suspend";
 
     usbmuxd = {
       enable = true;
