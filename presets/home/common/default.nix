@@ -102,7 +102,7 @@
       lfs.enable = true;
 
       settings = {
-        user ={
+        user = {
           name = "violet";
           email = "vi@violet.sh";
         };
