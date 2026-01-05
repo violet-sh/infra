@@ -12,7 +12,7 @@
   ];
 
   programs = {
-    tofi.enable = true;
+    fuzzel.enable = true;
 
     hyprlock = {
       enable = true;
@@ -77,7 +77,7 @@
       "$mod" = "SUPER";
       "$terminal" = "alacritty";
       "$browser" = "firefox";
-      "$menu" = "tofi-drun | xargs hyprctl dispatch exec --";
+      "$menu" = "fuzzel";
 
       monitor = [
         "eDP-1, prefered, 0x0, 1"

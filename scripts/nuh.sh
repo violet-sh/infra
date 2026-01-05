@@ -67,7 +67,6 @@ case "$verb" in
 		;;
 	switch|s)
 		cd $dir
-		rm -f ~/.cache/tofi-drun # Grrrrr Tofi needs this to be cleared
 		exec nh os switch /home/tibs/infra "$@"
 		;;
 	upgrade|up|u)

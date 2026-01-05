@@ -67,7 +67,7 @@
     config = {
       modifier = "Mod4";
       terminal = "alacritty";
-      menu = "tofi-drun | xargs swaymsg exec --";
+      menu = "fuzzel";
 
       output = {
         "*".bg = "~/Pictures/wallpapers/arcanepigeon/mushroom.png fill";
