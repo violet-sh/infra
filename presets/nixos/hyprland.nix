@@ -1,17 +1,26 @@
 { pkgs, ... }:
 {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+  programs = {
+    xfconf.enable = true;
+
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+      xwayland.enable = true;
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-vcs-plugin thunar-volman ];
+    };
   };
 
   services = {
     blueman.enable = true; # Bluetooth manager
     libinput.enable = true;
 
-    # gvfs.enable = true; # Mount, trash, etc for Thunar
-    # tumbler.enable = true; # Thumbnails for Thunar
+    gvfs.enable = true; # Mount, trash, etc for Thunar
+    tumbler.enable = true; # Thumbnails for Thunar
 
     # Display manager
     greetd = {
