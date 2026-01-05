@@ -46,11 +46,16 @@
       jetbrains.clion
       jetbrains.datagrip
       jetbrains.goland
-      jetbrains.idea-ultimate
-      jetbrains.pycharm-professional
+      jetbrains.idea
+      jetbrains.pycharm
       jetbrains.rider
       jetbrains.rust-rover
       jetbrains.webstorm
+
+      # LibreOffice
+      libreoffice-qt
+      hunspellDicts.en_US-large
+      hyphenDicts.en_US
 
       # Misc
       networkmanagerapplet
@@ -113,7 +118,7 @@
         ms-python.debugpy
         ms-python.python
         ms-toolsai.jupyter
-        ms-vscode.cpptools
+        # ms-vscode.cpptools
         ms-vscode.cmake-tools
         # oscarotero.vento-syntax
         rust-lang.rust-analyzer
