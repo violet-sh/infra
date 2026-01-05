@@ -21,7 +21,6 @@
       bombardier
       chafa
       diskus
-      dogdns
       doggo
       dust
       file
