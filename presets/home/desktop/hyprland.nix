@@ -60,7 +60,12 @@
       settings = {
         ipc = "off";
         preload = "~/Pictures/wallpapers/arcanepigeon/mushroom.png";
-        wallpaper = ",~/Pictures/wallpapers/arcanepigeon/mushroom.png";
+        wallpaper = [
+          {
+            monitor = "";
+            path = "~/Pictures/wallpapers/arcanepigeon/mushroom.png";
+          }
+        ];
       };
     };
   };
@@ -186,8 +191,8 @@
       ];
 
       windowrule = [
-        "idleinhibit fullscreen, class:*"
-        "float, class:firefox, title:(Extension:.*)"
+        "match:fullscreen on, idle_inhibit focus"
+        "match:class firefox, match:title (Extension:.*), float on"
       ];
     };
   };
