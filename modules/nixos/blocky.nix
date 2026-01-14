@@ -31,9 +31,9 @@ in
       type = with types; listOf str;
       description = "List of allowlists for Blocky";
       default = [
-        ''${pkgs.writeText "allowlist.txt" ''
+        "${pkgs.writeText "allowlist.txt" ''
           *.deno.dev
-        ''}''
+        ''}"
       ];
     };
     denylists = mkOption {
