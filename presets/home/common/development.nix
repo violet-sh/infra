@@ -41,6 +41,10 @@
 
     # Nix
     nil
+    nixd
+
+    # Prolog
+    swi-prolog-gui
 
     # Python
     python3
