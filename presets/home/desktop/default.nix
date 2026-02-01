@@ -39,6 +39,7 @@
       video-trimmer
       vlc
       wavemon
+      yaak
       zoom-us
 
       # Jetbrains
