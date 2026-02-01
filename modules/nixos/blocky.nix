@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -30,11 +29,7 @@ in
     allowlists = mkOption {
       type = with types; listOf str;
       description = "List of allowlists for Blocky";
-      default = [
-        "${pkgs.writeText "allowlist.txt" ''
-          *.deno.dev
-        ''}"
-      ];
+      default = [ ];
     };
     denylists = mkOption {
       type = with types; listOf str;
