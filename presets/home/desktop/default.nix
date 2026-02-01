@@ -131,6 +131,37 @@
         yzhang.markdown-all-in-one
       ];
     };
+
+    zed-editor = {
+      enable = true;
+      extensions = [
+        "assembly"
+        "astro"
+        "cargo-tom"
+        "csharp"
+        "csv"
+        "deno"
+        "dockerfile"
+        "docker-compose"
+        "elixir"
+        "fish"
+        "gleam"
+        "glsl"
+        "groovy"
+        "helm"
+        "html"
+        "java"
+        "kotlin"
+        "latex"
+        "markdown-oxide"
+        "nim"
+        "nix"
+        "scss"
+        "svelte"
+        "toml"
+        "zig"
+      ];
+    };
   };
 
   xdg = {
