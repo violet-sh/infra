@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    grim
     hyprpicker
+    hyprshot
     hyprsysteminfo
     playerctl
-    slurp
+    satty
     wayland-pipewire-idle-inhibit
     wl-clipboard-rs
     wl-clip-persist
@@ -83,6 +83,7 @@
       "$terminal" = "alacritty";
       "$browser" = "firefox";
       "$menu" = "fuzzel";
+      "$editor" = "zeditor";
 
       monitor = [
         "eDP-1, prefered, 0x0, 1"
@@ -119,6 +120,7 @@
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, D, exec, $menu"
+        "$mod, E, exec, $editor"
         "$mod, B, exec, $browser"
         "$mod SHIFT, B, exec, $browser --private-window"
         "$mod SHIFT, Q, killactive"
@@ -154,8 +156,7 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
 
         "$mod SHIFT, N, exec, swaync-client -t -sw"
-        ''$mod, PRINT, exec, grim -g "$(slurp)" - | wl-copy -t image/png''
-        ''$mod SHIFT, PRINT, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +%F\_%H.%M.%S).png''
+        ''$mod, PRINT, exec, hyprshot -m region --freeze -r -- | satty --filename - --fullscreen --output-filename "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"''
         "$mod, C, exec, hyprpicker | wl-copy"
       ];
 
