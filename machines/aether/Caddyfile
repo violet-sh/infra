@@ -80,7 +80,7 @@
 
 // maven.violet.sh {
 // 	import default
-// 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://static.tibs.gay; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-eval'; connect-src 'self'"
+// 	header Content-Security-Policy "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://static.violet.sh; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-eval'; connect-src 'self'"
 // 	reverse_proxy localhost:2000
 // }
 
@@ -132,7 +132,7 @@
 // is.tibs.gay {
 // 	import default
 // 	import csp
-// 	root * /home/tibs/caddy
+// 	root * /home/violet/caddy
 // 	file_server
 // 	rewrite * /is.tibs.gay.html
 // }
@@ -141,7 +141,7 @@
 // 	import default
 // 	import csp
 // 	import cdn
-// 	root * /home/tibs/caddy/static
+// 	root * /home/violet/caddy/static
 // 	file_server
 // }
 

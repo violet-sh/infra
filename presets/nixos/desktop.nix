@@ -49,7 +49,7 @@
     ragenix.packages.x86_64-linux.default
   ];
 
-  users.users.tibs = {
+  users.users.violet = {
     extraGroups = [ "video" ];
   };
 

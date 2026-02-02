@@ -28,7 +28,7 @@ in
         {
           inherit age inputs desktop;
         };
-      users.tibs =
+      users.violet =
         { desktop, ... }:
         {
           imports =

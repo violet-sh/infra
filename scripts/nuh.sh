@@ -67,7 +67,7 @@ case "$verb" in
 		;;
 	switch|s)
 		cd $dir
-		exec nh os switch /home/tibs/infra "$@"
+		exec nh os switch $dir "$@"
 		;;
 	upgrade|up|u)
 		exec $0 switch --update

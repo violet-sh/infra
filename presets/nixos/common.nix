@@ -26,7 +26,7 @@
         "recursive-nix"
       ];
       system-features = [ "recursive-nix" ];
-      trusted-users = [ "tibs" ];
+      trusted-users = [ "violet" ];
       substituters = [
         "https://nix-community.cachix.org"
       ];
@@ -48,7 +48,7 @@
   };
 
   environment.etc = {
-    "nixos".source = "/home/tibs/infra";
+    "nixos".source = "/home/violet/infra";
   };
 
   ### System meta
@@ -99,7 +99,7 @@
 
     nh = {
       enable = true;
-      flake = "/home/tibs/infra"; # This doesn't seem to show up as `NH_FLAKE`, maybe a fish problem?
+      flake = "/home/violet/infra"; # This doesn't seem to show up as `NH_FLAKE`, maybe a fish problem?
       clean = {
         enable = true;
       };
@@ -113,7 +113,7 @@
 
   ### Networking
   networking = {
-    domain = "tibs.gay";
+    domain = "violet.sh";
     useDHCP = false;
     dhcpcd.enable = false;
     firewall.enable = true;
@@ -122,7 +122,7 @@
   };
 
   ### Users
-  users.users.tibs = {
+  users.users.violet = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ "wheel" ];
@@ -141,7 +141,7 @@
     # Load ssh key from age file for home-manager
     secrets.ragenix_key = {
       file = ../../secrets/ragenix_key.age;
-      owner = "tibs";
+      owner = "violet";
       group = "users";
     };
   };

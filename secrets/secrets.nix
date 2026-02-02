@@ -1,6 +1,6 @@
 let
   # --- Users ---
-  tibs = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
+  violet = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
   ragenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfxuU8uMTeoNhOn0AM/LysdLrOxfeYT0c/N+Rh/ChgY";
 
   # --- Systems ---
@@ -22,90 +22,90 @@ let
 in
 {
   "ragenix_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
   ]
   ++ systems;
   "aether_wg0_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "zeus_wg0_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     zeus
   ];
   "zeus_wg0_preshared_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
     zeus
   ];
   "hera_wg0_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     hera
   ];
   "hera_wg0_preshared_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
     hera
   ];
   "hermes_wg0_preshared_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "hestia_wg0_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     hestia
   ];
   "hestia_wg0_preshared_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
     hestia
   ];
   "dionysus_wg0_preshared_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "wgautomesh_gossip_secret.age".publicKeys = [
-    tibs
+    violet
     ragenix
   ]
   ++ systems;
   "woodpecker_github_client.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "woodpecker_github_secret.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "woodpecker_agent_secret.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "caddy_env.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "bunny_tls_api_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];
   "cloudflare_tls_api_key.age".publicKeys = [
-    tibs
+    violet
     ragenix
     aether
   ];

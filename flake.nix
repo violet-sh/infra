@@ -135,7 +135,7 @@
         fastConnection = true;
         remoteBuild = true;
         user = "root";
-        sshUser = "tibs";
+        sshUser = "violet";
 
         nodes = eachMachine (machine: {
           hostname = "${machine}.wg";

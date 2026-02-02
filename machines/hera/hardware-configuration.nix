@@ -36,7 +36,7 @@
     fsType = "zfs";
   };
 
-  fileSystems."/home/tibs/.local/share/Steam/steamapps" = {
+  fileSystems."/home/violet/.local/share/Steam/steamapps" = {
     device = "zroot/steam";
     fsType = "zfs";
   };

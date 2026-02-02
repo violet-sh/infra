@@ -63,7 +63,7 @@
     ];
 
     sessionVariables = {
-      SSH_AUTH_SOCK = "/home/tibs/.bitwarden-ssh-agent.sock";
+      SSH_AUTH_SOCK = "/home/violet/.bitwarden-ssh-agent.sock";
     };
   };
 

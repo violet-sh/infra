@@ -65,7 +65,7 @@
   };
 
   ### Users
-  users.users.tibs = {
+  users.users.violet = {
     extraGroups = [ "networkmanager" ];
   };
 

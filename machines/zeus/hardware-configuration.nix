@@ -35,12 +35,12 @@
     fsType = "zfs";
   };
 
-  fileSystems."/home/tibs/.local/share/PrismLauncher/instances" = {
+  fileSystems."/home/violet/.local/share/PrismLauncher/instances" = {
     device = "zroot/prism";
     fsType = "zfs";
   };
 
-  fileSystems."/home/tibs/.local/share/Steam/steamapps" = {
+  fileSystems."/home/violet/.local/share/Steam/steamapps" = {
     device = "zroot/steam";
     fsType = "zfs";
   };

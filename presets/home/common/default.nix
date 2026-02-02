@@ -13,8 +13,8 @@
   ];
 
   home = {
-    username = "tibs";
-    homeDirectory = "/home/tibs";
+    username = "violet";
+    homeDirectory = "/home/violet";
 
     packages = with pkgs; [
       # Tools
