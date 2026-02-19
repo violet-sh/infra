@@ -14,9 +14,13 @@
       tor-browser
 
       # Apps
+      ardour
       aseprite
       bitwarden-desktop
+      blender
+      blockbench
       coppwr
+      davinci-resolve
       drawio
       foliate
       gimp

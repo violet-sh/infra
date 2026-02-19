@@ -31,6 +31,7 @@
       packwiz
       pastel
       pigz
+      presenterm
       procs
       q
       tokei
