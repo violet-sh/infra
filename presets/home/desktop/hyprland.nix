@@ -83,6 +83,7 @@
       "$terminal" = "ghostty";
       "$browser" = "firefox";
       "$menu" = "fuzzel";
+      "$file-manager" = "thunar";
       "$editor" = "zeditor";
 
       monitor = [
@@ -120,6 +121,8 @@
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, D, exec, $menu"
+        "$mod SHIFT, D , exec, mullvad-exclude $menu"
+        "$mod, T, exec, $file-manager"
         "$mod, E, exec, $editor"
         "$mod, B, exec, $browser"
         "$mod SHIFT, B, exec, $browser --private-window"
