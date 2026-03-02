@@ -80,7 +80,7 @@
 
     settings = {
       "$mod" = "SUPER";
-      "$terminal" = "alacritty";
+      "$terminal" = "ghostty";
       "$browser" = "firefox";
       "$menu" = "fuzzel";
       "$editor" = "zeditor";
