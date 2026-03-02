@@ -26,12 +26,12 @@
     qemu
 
     # BEAM
+    beamPackages.expert
     elixir
     erlang
     erlang-language-platform
     glas
     gleam
-    next-ls
 
     # JavaScript
     deno
