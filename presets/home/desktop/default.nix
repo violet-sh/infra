@@ -25,7 +25,6 @@
       foliate
       gimp
       handbrake
-      helvum
       image-roll
       keepassxc
       kdePackages.filelight

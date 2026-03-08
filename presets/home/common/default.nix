@@ -79,7 +79,6 @@
     broot.enable = true;
     btop.enable = true;
     eza.enable = true;
-    fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;
     gh-dash.enable = true;

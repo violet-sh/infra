@@ -58,12 +58,12 @@
   ### Common packages
   environment.systemPackages = with pkgs; [
     dmidecode
+    fastfetch
     inetutils
     iperf3
     ldns # drill
     lm_sensors
     lshw
-    neofetch
     pciutils # lspci
     unzip
     usbutils # lsusb
