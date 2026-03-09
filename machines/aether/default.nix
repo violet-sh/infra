@@ -63,7 +63,14 @@
   };
 
   modules = {
-    prometheus.enable = true;
+    prometheus = {
+      enable = true;
+      exporters = {
+        node = {
+          enable = true;
+        };
+      };
+    };
 
     wireguard = {
       enable = true;
