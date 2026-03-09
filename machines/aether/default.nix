@@ -76,6 +76,12 @@
     };
 
     ### Web services
+    # grafana = {
+    #   enable = true;
+    #   hostname = "metrics.violet.sh";
+    #   port = 2000;
+    # };
+
     forgejo = {
       enable = true;
       hostname = "git.violet.sh";
@@ -120,18 +126,6 @@
     #   enable = true;
     #   hostname = "vencord.violet.sh";
     #   port = 2008;
-    # };
-
-    # jellyfin = {
-    #   enable = true;
-    #   hostname = "watch.violet.sh";
-    #   port = 2009;
-    # };
-
-    # grafana = {
-    #   enable = true;
-    #   hostname = "metrics.violet.sh";
-    #   port = 2010;
     # };
   };
 
