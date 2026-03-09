@@ -23,6 +23,10 @@ in
       type = with types; nullOr str;
       default = null;
     };
+    openFirewall = mkOption {
+      type = types.bool;
+      default = false;
+    };
     mesh = mkOption {
       type =
         with types;
@@ -105,7 +109,10 @@ in
           peers;
       };
 
-      firewall.trustedInterfaces = [ (cfg.interfaceName) ];
+      firewall = {
+        trustedInterfaces = [ (cfg.interfaceName) ];
+        allowedUDPPorts = lib.mkIf cfg.openFirewall [ 51820 ];
+      };
       search = [ "wg" ];
     };
 

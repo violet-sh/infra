@@ -70,6 +70,7 @@
         "fd47:4161:82f9::1/64"
       ];
       privateKeyFile = config.age.secrets.aether_wg0_key.path;
+      openFirewall = true;
     };
 
     ### Web services
