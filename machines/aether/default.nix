@@ -96,7 +96,7 @@
       hostname = "ci.violet.sh";
       port = 2005;
       orgs = [ "community-tbd" ];
-      admin = [ "TibiNonEst" ];
+      admin = [ "violet-sh" ];
     };
 
     # mycorrhiza = {
