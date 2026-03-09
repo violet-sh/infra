@@ -6,7 +6,7 @@ in
   options.modules.prometheus = with lib; {
     enable = mkEnableOption { description = "Enable Prometheus"; };
     scrapeInterval = mkOption {
-      type = str;
+      type = types.str;
       description = "Prometheus's endpoint scrape interval";
       default = "10s";
     };
