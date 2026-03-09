@@ -13,6 +13,7 @@ version=0.1.0
 me=$(basename $0)
 sudo=${NUH_SUDO:-sudo}
 dir=${NUH_DIR:-~/infra}
+editor=${EDITOR:-vi}
 
 verb=$1
 shift
@@ -26,14 +27,16 @@ Current infrastructure directory: $dir
 
 Verbs:
   search [query] - find a package by keyword(s)
-  update         - update the system flake
-  upgrade        - update the system flake and rebuild the system
+  pull           - pull git repository
+  switch         - rebuild the configuration
+  update         - update the flake
+  upgrade        - update the flake and rebuild the configuration
   clean          - clean up unused and cached files
   shrink         - save space by hard-linking files
   try [package]  - try out a new package in an ephemral shell
-  show           - show a tree view of your current infra directory
-  edit [module]  - edit a file in your infra directory
-  help           - print this help
+  show           - show a tree view of the current infra directory
+  edit [file]    - edit a file in the infra directory
+  help           - print this help menu
   version        - print the version number
 
 EOF
@@ -61,13 +64,17 @@ case "$verb" in
 	search|query)
 		exec nix search "nixpkgs#legacyPackages.x86_64-linux" "$@"
 		;;
-	update)
-		cd $dir
-		exec $sudo nix flake update --no-warn-dirty "$@"
-		;;
+	pull|p)
+	    cd $dir
+		exec git pull
+	    ;;
 	switch|s)
 		cd $dir
 		exec nh os switch $dir "$@"
+		;;
+	update)
+		cd $dir
+		exec $sudo nix flake update --no-warn-dirty "$@"
 		;;
 	upgrade|up|u)
 		exec $0 switch --update
@@ -89,7 +96,7 @@ case "$verb" in
 		exec eza --tree $dir "$@"
 		;;
 	edit|e)
-		exec $EDITOR "$dir/$@"
+		exec $editor "$dir/$@"
 		;;
 
 	# Easter eggs
