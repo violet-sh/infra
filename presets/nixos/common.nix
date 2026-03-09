@@ -12,6 +12,9 @@
     ragenix.nixosModules.default
   ];
 
+  ### Catppuccin-ify everything
+  catppuccin.enable = true;
+
   ### Common Nix settings
   nix = {
     optimise = {

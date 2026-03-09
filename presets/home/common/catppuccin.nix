@@ -14,7 +14,7 @@
 
   };
 
-  gtk = {
+  gtk = lib.mkIf desktop {
     enable = true;
     theme = {
       name = "Catppuccin-GTK-Dark";
