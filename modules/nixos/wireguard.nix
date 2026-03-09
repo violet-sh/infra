@@ -100,7 +100,7 @@ in
         peers =
           let
             filtered_peers = builtins.filter (peer: hostname == "aether" || peer.name == "aether") cfg.peers; # Distribute peers in hub to begin with
-            peers = builtins.map (peer: builtins.removeAttrs peer [ "mesh" ]) filtered_peers;
+            peers = map (peer: removeAttrs peer [ "mesh" ]) filtered_peers;
           in
           peers;
       };
@@ -116,7 +116,7 @@ in
         interface = cfg.interfaceName;
         peers =
           let
-            peers = builtins.map (peer: {
+            peers = map (peer: {
               pubkey = peer.publicKey;
               endpoint = peer.endpoint;
               address = peer.mesh.ip;

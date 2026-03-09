@@ -27,7 +27,7 @@ in
         WOODPECKER_ORGS = builtins.concatStringsSep "," cfg.orgs;
         WOODPECKER_ADMIN = builtins.concatStringsSep "," cfg.admin;
         WOODPECKER_HOST = "https://${cfg.hostname}";
-        WOODPECKER_SERVER_ADDR = ":${builtins.toString cfg.port}";
+        WOODPECKER_SERVER_ADDR = ":${toString cfg.port}";
         WOODPECKER_GITHUB = "true";
         WOODPECKER_GITHUB_CLIENT_FILE = config.age.secrets.woodpecker_github_client.path;
         WOODPECKER_GITHUB_SECRET_FILE = config.age.secrets.woodpecker_github_secret.path;
