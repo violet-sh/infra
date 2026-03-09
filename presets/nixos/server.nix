@@ -6,6 +6,7 @@
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
+        PrintLastLog = false;
       };
     };
 
