@@ -36,6 +36,7 @@
   networking = {
     hostName = "aether";
     hostId = "ff85a7eb";
+    useNetworkd = true;
     interfaces.ens3 = {
       ipv4.addresses = [
         {
