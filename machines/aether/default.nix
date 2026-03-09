@@ -63,6 +63,8 @@
   };
 
   modules = {
+    prometheus.enable = true;
+
     wireguard = {
       enable = true;
       ips = [
