@@ -28,10 +28,6 @@
         ];
         endpoint = "5.161.106.226:28183";
         persistentKeepalive = 25;
-        mesh = {
-          enable = true;
-          ip = "10.8.0.1";
-        };
       }
       {
         name = "zeus";
