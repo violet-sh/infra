@@ -83,16 +83,17 @@
     };
 
     ### Web services
-    # grafana = {
-    #   enable = true;
-    #   hostname = "metrics.violet.sh";
-    #   port = 2000;
-    # };
+    grafana = {
+      enable = true;
+      hostname = "metrics.violet.sh";
+      port = 2000;
+    };
 
     forgejo = {
       enable = true;
       hostname = "git.violet.sh";
       port = 2001;
+      ssh_port = 2222;
     };
 
     reposilite = {

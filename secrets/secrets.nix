@@ -109,4 +109,9 @@ in
     ragenix
     aether
   ];
+  "grafana_secret_key.age".publicKeys = [
+    violet
+    ragenix
+    aether
+  ];
 }
