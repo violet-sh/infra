@@ -45,5 +45,10 @@ in
         ];
       };
     };
+
+    modules.caddy.services.grafana = {
+      hostname = cfg.hostname;
+      port = cfg.port;
+    };
   };
 }
