@@ -32,9 +32,6 @@ in
         security = {
           PASSWORD_HASH_ALGO = "argon2";
         };
-        ui = {
-          DEFAULT_THEME = "catppuccin-macchiato-lavender";
-        };
       };
     };
 

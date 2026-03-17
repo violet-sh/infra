@@ -13,7 +13,11 @@
   ];
 
   ### Catppuccin-ify everything
-  catppuccin.enable = true;
+  catppuccin = {
+    enable = true;
+    accent = "lavender";
+    flavor = "macchiato";
+  };
 
   ### Common Nix settings
   nix = {
