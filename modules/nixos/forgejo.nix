@@ -19,7 +19,9 @@ in
       enable = true;
       lfs.enable = cfg.lfs;
       settings = {
-        APP_NAME = "violet's git";
+        DEFAULT = {
+          APP_NAME = "violet's git";
+        };
         server = {
           DOMAIN = cfg.hostname;
           HTTP_PORT = cfg.port;
