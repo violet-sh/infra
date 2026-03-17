@@ -25,7 +25,7 @@ in
         server = {
           DOMAIN = cfg.hostname;
           HTTP_PORT = cfg.port;
-          PROTOCOL = "https";
+          PROTOCOL = "http";
           ROOT_URL = "https://${cfg.hostname}/";
           SSH_PORT = cfg.ssh_port;
         };
