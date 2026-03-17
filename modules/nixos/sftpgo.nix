@@ -15,14 +15,10 @@ in
       enable = true;
       settings = {
         httpd.bindings = [
-          {
-            port = 8000;
-          }
+          { port = cfg.port; }
         ];
         sftpd.bindings = [
-          {
-            port = 2122;
-          }
+          { port = cfg.sftp_port; }
         ];
       };
     };
