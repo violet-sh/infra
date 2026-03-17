@@ -11,7 +11,12 @@ in
 
   config = lib.mkIf cfg.enable {
     age.secrets = {
-      grafana_secret_key.file = ../../secrets/grafana_secret_key.age;
+      grafana_secret_key = {
+        file = ../../secrets/grafana_secret_key.age;
+        owner = "grafana";
+        group = "users";
+        mode = "600";
+      };
     };
 
     services.grafana = {
