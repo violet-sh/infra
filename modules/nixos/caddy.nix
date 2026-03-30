@@ -13,29 +13,31 @@ in
     services = mkOption {
       type =
         with types;
-        listOf (submodule {
-          hostname = mkOption {
-            type = str;
-            description = "The hostname of this virtual host";
-          };
-          serverAliases = mkOption {
-            type = listOf str;
-            description = "Additional hostnames for this virtual host to respond to";
-            default = [ ];
-          };
-          address = mkOption {
-            type = str;
-            description = "The address of the service to reverse proxy";
-            default = "127.0.0.1";
-          };
-          port = mkOption {
-            type = port;
-            description = "The port of the service to reverse proxy";
-          };
-          dnsProvider = mkOption {
-            type = str;
-            descrption = "The DNS provider to use for this virtual host (cloudflare | bunny)";
-            default = "bunny";
+        attrsOf (submodule {
+          options = {
+            hostname = mkOption {
+              type = str;
+              description = "The hostname of this virtual host";
+            };
+            serverAliases = mkOption {
+              type = listOf str;
+              description = "Additional hostnames for this virtual host to respond to";
+              default = [ ];
+            };
+            address = mkOption {
+              type = str;
+              description = "The address of the service to reverse proxy";
+              default = "127.0.0.1";
+            };
+            port = mkOption {
+              type = port;
+              description = "The port of the service to reverse proxy";
+            };
+            dnsProvider = mkOption {
+              type = str;
+              description = "The DNS provider to use for this virtual host (cloudflare | bunny)";
+              default = "bunny";
+            };
           };
         });
       description = "Service configurations for reverse proxy virtual hosts";
@@ -47,13 +49,25 @@ in
       default = false;
     };
     configFile = mkOption {
-      type = types.path;
+      type = with types; nullOr path;
       description = "Path to Caddyfile";
+      default = null;
     };
     extraConfig = mkOption {
       type = types.lines;
       description = "Extra config to add to the created Caddyfile";
-      default = "";
+      default = ''
+        (bunny) {
+        	tls {
+        		dns bunny {$BUNNY_API_KEY}
+        	}
+        }
+        (cloudflare) {
+        	tls {
+        		dns cloudflare {$CLOUDFLARE_API_KEY}
+        	}
+        }
+      '';
     };
   };
 
@@ -68,13 +82,23 @@ in
         hash = "sha256-wGWoE7j2rt4V5+hm3rYSvSzY6J9goZuq1og964Dygmg=";
       };
       globalConfig = lib.mkIf cfg.metrics ''
-        {
-          servers {
-            metrics
-          }
+        metrics {
+          per_host
         }
       '';
-      configFile = cfg.configFile;
+      virtualHosts =
+        let
+          services = builtins.mapAttrs (name: value: {
+            hostName = value.hostname;
+            serverAliases = value.serverAliases;
+            extraConfig = ''
+              import ${value.dnsProvider}
+              reverse_proxy ${value.address}:${toString value.port}
+            '';
+          }) cfg.services;
+        in
+        services;
+      configFile = lib.mkIf (cfg.configFile != null) cfg.configFile;
       extraConfig = cfg.extraConfig;
       environmentFile = config.age.secrets.caddy_env.path;
     };

@@ -35,12 +35,10 @@ in
       };
     };
 
-    modules.caddy.services = lib.mkIf config.modules.caddy.enable [
-      {
-        hostname = cfg.hostname;
-        port = cfg.port;
-      }
-    ];
+    modules.caddy.services.woodpecker-server = lib.mkIf config.modules.caddy.enable {
+      hostname = cfg.hostname;
+      port = cfg.port;
+    };
 
     # Load in age secrets
     age.secrets = {

@@ -5,8 +5,6 @@
     ./hardware-configuration.nix
 
     ../../presets/nixos/server.nix
-
-    ./caddy.nix
   ];
 
   boot = {
@@ -63,6 +61,12 @@
   };
 
   modules = {
+    caddy = {
+      enable = true;
+      metrics = true;
+      # configFile = ./Caddyfile;
+    };
+
     prometheus = {
       enable = true;
       exporters = {
