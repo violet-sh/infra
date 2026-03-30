@@ -103,6 +103,15 @@ in
       environmentFile = config.age.secrets.caddy_env.path;
     };
 
+    modules.prometheus.scrapeConfigs = lib.mkIf cfg.metrics [
+      {
+        job_name = "caddy";
+        static_configs = [
+          { targets = [ "localhost:2019" ]; }
+        ];
+      }
+    ];
+
     networking.firewall.allowedTCPPorts = [
       80
       443
