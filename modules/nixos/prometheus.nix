@@ -30,6 +30,26 @@ in
           };
         };
     };
+    scrapeConfigs = mkOption {
+      type =
+        with types;
+        listOf (submodule {
+          options = {
+            job_name = mkOption {
+              type = str;
+            };
+            static_configs = mkOption {
+              type = listOf (submodule {
+                options = {
+                  targets = mkOption {
+                    type = listOf str;
+                  };
+                };
+              });
+            };
+          };
+        });
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -50,7 +70,7 @@ in
             ];
           }) enabled_exporters;
         in
-        configs;
+        configs ++ cfg.scrapeConfigs;
     };
   };
 }
