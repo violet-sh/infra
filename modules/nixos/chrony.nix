@@ -9,8 +9,7 @@ in
       type = with types; listOf str;
       description = "List of servers for Chrony";
       default = [
-        "pool.ntp.org"
-        "clock.he.net"
+        "clock.nyc.he.net"
         "time.nist.gov"
         "time.cloudflare.com"
       ];
