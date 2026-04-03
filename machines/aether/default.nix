@@ -64,6 +64,7 @@
     caddy = {
       enable = true;
       metrics = true;
+      openFirewall = true;
     };
 
     podman = {
@@ -113,14 +114,14 @@
     #   enable = true;
     #   hostname = "panel.violet.sh";
     #   port = 2003;
-    #   wings_port = 2004;
+    #   wings_addr = "hestia:2000";
     # };
 
     woodpecker-server = {
       enable = true;
       hostname = "ci.violet.sh";
-      port = 2005;
-      grpcPort = 2006;
+      port = 2004;
+      grpcPort = 2005;
       orgs = [ "community-tbd" ];
       admin = [ "violet-sh" ];
     };
@@ -132,20 +133,13 @@
     # mycorrhiza = {
     #   enable = true;
     #   hostname = "wiki.violet.sh";
-    #   port = 2007;
+    #   port = 2006;
     # };
-
-    sftpgo = {
-      enable = true;
-      hostname = "vault.violet.sh";
-      port = 2008;
-      sftp_port = 2122;
-    };
 
     # vencloud = {
     #   enable = true;
     #   hostname = "vencord.violet.sh";
-    #   port = 2009;
+    #   port = 2007;
     # };
   };
 

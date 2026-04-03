@@ -58,6 +58,10 @@ in
       description = "Extra config to add to the created Caddyfile";
       default = "";
     };
+    openFirewall = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -116,7 +120,7 @@ in
       }
     ];
 
-    networking.firewall.allowedTCPPorts = [
+    networking.firewall.allowedTCPPorts = lib.mkIf cfg.openFirewall [
       80
       443
     ];
