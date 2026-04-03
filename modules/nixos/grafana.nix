@@ -15,7 +15,7 @@ in
         file = ../../secrets/grafana_secret_key.age;
         owner = "grafana";
         group = "users";
-        mode = "600";
+        mode = "400";
       };
     };
 
