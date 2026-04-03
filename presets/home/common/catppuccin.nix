@@ -14,12 +14,13 @@
 
   };
 
-  gtk = lib.mkIf desktop {
+  gtk = lib.mkIf desktop rec {
     enable = true;
     theme = {
       name = "Catppuccin-GTK-Dark";
       package = pkgs.magnetic-catppuccin-gtk;
     };
+    gtk4.theme = theme;
   };
 
   qt = lib.mkIf desktop {

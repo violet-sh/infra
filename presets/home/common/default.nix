@@ -109,6 +109,7 @@
 
       signing = {
         key = "047833989F50F88F";
+        format = "openpgp";
         signByDefault = true;
       };
     };
