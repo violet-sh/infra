@@ -56,18 +56,7 @@ in
     extraConfig = mkOption {
       type = types.lines;
       description = "Extra config to add to the created Caddyfile";
-      default = ''
-        (bunny) {
-        	tls {
-        		dns bunny {$BUNNY_API_KEY}
-        	}
-        }
-        (cloudflare) {
-        	tls {
-        		dns cloudflare {$CLOUDFLARE_API_KEY}
-        	}
-        }
-      '';
+      default = "";
     };
   };
 
@@ -99,7 +88,21 @@ in
         in
         services;
       configFile = lib.mkIf (cfg.configFile != null) cfg.configFile;
-      extraConfig = cfg.extraConfig;
+      extraConfig = let
+        tls = ''
+          (bunny) {
+          	tls {
+          		dns bunny {$BUNNY_API_KEY}
+          	}
+          }
+          (cloudflare) {
+          	tls {
+          		dns cloudflare {$CLOUDFLARE_API_KEY}
+          	}
+          }
+        '';
+      in
+      cfg.extraConfig + tls;
       environmentFile = config.age.secrets.caddy_env.path;
     };
 
