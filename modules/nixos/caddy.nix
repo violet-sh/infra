@@ -88,21 +88,22 @@ in
         in
         services;
       configFile = lib.mkIf (cfg.configFile != null) cfg.configFile;
-      extraConfig = let
-        tls = ''
-          (bunny) {
-          	tls {
-          		dns bunny {$BUNNY_API_KEY}
-          	}
-          }
-          (cloudflare) {
-          	tls {
-          		dns cloudflare {$CLOUDFLARE_API_KEY}
-          	}
-          }
-        '';
-      in
-      cfg.extraConfig + tls;
+      extraConfig =
+        let
+          tls = ''
+            (bunny) {
+            	tls {
+            		dns bunny {$BUNNY_API_KEY}
+            	}
+            }
+            (cloudflare) {
+            	tls {
+            		dns cloudflare {$CLOUDFLARE_API_KEY}
+            	}
+            }
+          '';
+        in
+        cfg.extraConfig + tls;
       environmentFile = config.age.secrets.caddy_env.path;
     };
 
