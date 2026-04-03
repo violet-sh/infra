@@ -7,6 +7,7 @@ in
     enable = mkEnableOption { description = "Enable the Woodpecker server"; };
     hostname = mkOption { type = types.str; };
     port = mkOption { type = types.port; };
+    grpcPort = mkOption { type = types.port; };
     orgs = mkOption {
       type = with types; listOf str;
       description = "A list of GitHub orgs allowed to log in";
@@ -28,6 +29,7 @@ in
         WOODPECKER_ADMIN = builtins.concatStringsSep "," cfg.admin;
         WOODPECKER_HOST = "https://${cfg.hostname}";
         WOODPECKER_SERVER_ADDR = ":${toString cfg.port}";
+        WOODPECKER_GRPC_ADDR = ":${toString cfg.grpcPort}";
         WOODPECKER_GITHUB = "true";
         WOODPECKER_GITHUB_CLIENT_FILE = config.age.secrets.woodpecker_github_client.path;
         WOODPECKER_GITHUB_SECRET_FILE = config.age.secrets.woodpecker_github_secret.path;
@@ -41,10 +43,20 @@ in
     };
 
     # Load in age secrets
+    # Can't set file user to dynamic user (woodpecker), so 644 will suffice
     age.secrets = {
-      woodpecker_github_client.file = ../../../secrets/woodpecker_github_client.age;
-      woodpecker_github_secret.file = ../../../secrets/woodpecker_github_secret.age;
-      woodpecker_agent_secret.file = ../../../secrets/woodpecker_agent_secret.age;
+      woodpecker_github_client = {
+        file = ../../../secrets/woodpecker_github_client.age;
+        mode = "644";
+      };
+      woodpecker_github_secret = {
+        file = ../../../secrets/woodpecker_github_secret.age;
+        mode = "644";
+      };
+      woodpecker_agent_secret = {
+        file = ../../../secrets/woodpecker_agent_secret.age;
+        mode = "644";
+      };
     };
   };
 }

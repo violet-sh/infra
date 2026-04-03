@@ -64,7 +64,10 @@
     caddy = {
       enable = true;
       metrics = true;
-      # configFile = ./Caddyfile;
+    };
+
+    podman = {
+      enable = true;
     };
 
     prometheus = {
@@ -117,27 +120,32 @@
       enable = true;
       hostname = "ci.violet.sh";
       port = 2005;
+      grpcPort = 2006;
       orgs = [ "community-tbd" ];
       admin = [ "violet-sh" ];
+    };
+
+    woodpecker-agent = {
+      enable = true;
     };
 
     # mycorrhiza = {
     #   enable = true;
     #   hostname = "wiki.violet.sh";
-    #   port = 2006;
+    #   port = 2007;
     # };
 
     sftpgo = {
       enable = true;
       hostname = "vault.violet.sh";
-      port = 2007;
+      port = 2008;
       sftp_port = 2122;
     };
 
     # vencloud = {
     #   enable = true;
     #   hostname = "vencord.violet.sh";
-    #   port = 2008;
+    #   port = 2009;
     # };
   };
 

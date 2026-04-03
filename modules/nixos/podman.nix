@@ -37,16 +37,22 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.containers.enable = true;
+    virtualisation = {
+      containers.enable = true;
 
-    virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
+      podman = {
+        enable = true;
+        dockerCompat = true;
+        defaultNetwork.settings.dns_enabled = true;
 
-      autoPrune.enable = cfg.autoPrune;
+        autoPrune.enable = cfg.autoPrune;
+      };
+
+      oci-containers.containers = cfg.containers;
     };
 
-    virtualisation.oci-containers.containers = cfg.containers;
+    users.users.violet.extraGroups = [
+      "podman"
+    ];
   };
 }
