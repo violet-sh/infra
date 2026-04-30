@@ -14,7 +14,6 @@
     ./podman.nix
     ./prometheus.nix
     ./reposilite.nix
-    ./sftpgo.nix
     ./vencloud.nix
     ./wireguard.nix
     ./woodpecker
