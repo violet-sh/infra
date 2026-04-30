@@ -42,6 +42,26 @@ in
         "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/hoster.txt"
       ];
     };
+    ports = mkOption {
+      type =
+        with types;
+        submodule {
+          options = {
+            dns = mkOption {
+              type = listOf port;
+              default = [ 53 ];
+            };
+            http = mkOption {
+              type = listOf port;
+            };
+          };
+        };
+    };
+    metrics = mkOption {
+      type = types.bool;
+      description = "Whether to enable Prometheus metrics for Blocky";
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -79,6 +99,7 @@ in
             default = [ "default" ];
           };
         };
+        ports = cfg.ports;
         caching.prefetching = true;
         customDNS.mapping = {
           "aether.wg" = "10.8.0.1,fd47:4161:82f9::1";
@@ -90,6 +111,7 @@ in
           "zephyrus.wg" = "10.8.0.7,fd47:4161:82f9::7";
           "dionysus.wg" = "10.8.0.8,fd47:4161:82f9::8";
         };
+        prometheus.enable = cfg.metrics;
       };
     };
   };

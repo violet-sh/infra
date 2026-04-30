@@ -140,7 +140,7 @@ in
       logFormat = lib.mkForce "level INFO";
     };
 
-    modules.prometheus.scrapeConfigs = lib.mkIf cfg.metrics [
+    services.victoriametrics.prometheusConfig.scrape_configs = lib.mkIf cfg.metrics [
       {
         job_name = "caddy";
         static_configs = [

@@ -12,6 +12,11 @@ in
       type = types.bool;
       default = true;
     };
+    metrics = mkOption {
+      type = types.bool;
+      description = "Whether to enable Prometheus metrics for Forgejo";
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -31,6 +36,11 @@ in
         };
         security = {
           PASSWORD_HASH_ALGO = "argon2";
+        };
+        metrics = lib.mkIf cfg.metrics {
+          ENABLED = true;
+          ENABLED_ISSUE_BY_REPOSITORY = true;
+          ENABLED_ISSUE_BY_LABEL = true;
         };
       };
     };

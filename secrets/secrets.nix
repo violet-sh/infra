@@ -96,6 +96,11 @@ in
     ragenix
     aether
   ];
+  "woodpecker_metrics_token.age".publicKeys = [
+    violet
+    ragenix
+    aether
+  ];
   "caddy_env.age".publicKeys = [
     violet
     ragenix

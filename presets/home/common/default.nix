@@ -142,6 +142,12 @@
           hostname = "github.com";
           user = "git";
         };
+
+        silk = {
+          host = "silk";
+          hostname = "silk.uvm.edu";
+          user = "tvorus";
+        };
       };
     };
 

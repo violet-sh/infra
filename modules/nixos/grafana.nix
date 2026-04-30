@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.grafana;
 in
@@ -32,13 +37,18 @@ in
         analytics.reporting_enabled = false;
       };
 
+      declarativePlugins = with pkgs.grafanaPlugins; [
+        grafana-metricsdrilldown-app
+        victoriametrics-metrics-datasource
+      ];
+
       provision = {
         enable = true;
         datasources.settings.datasources = [
           {
-            name = "Prometheus";
-            type = "prometheus";
-            url = "http://${config.services.prometheus.listenAddress}:${toString config.services.prometheus.port}";
+            name = "VictoriaMetrics";
+            type = "victoriametrics-metrics-datasource";
+            url = "http://localhost${config.services.victoriametrics.listenAddress}";
             isDefault = true;
             editable = false;
           }

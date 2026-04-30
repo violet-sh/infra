@@ -60,7 +60,83 @@
     };
   };
 
+  services = {
+    prometheus.exporters = {
+      chrony.enable = true;
+      wireguard.enable = true;
+
+      node = {
+        enable = true;
+        enabledCollectors = [
+          "ethtool"
+          "logind"
+          "network_route"
+          "systemd"
+        ];
+      };
+    };
+
+    victoriametrics = {
+      enable = true;
+      prometheusConfig = {
+        global = {
+          scrape_interval = "10s";
+        };
+        scrape_configs = [
+          {
+            job_name = "blocky";
+            static_configs = [
+              { targets = [ "localhost:${toString config.modules.blocky.ports.http}" ]; }
+            ];
+          }
+          {
+            job_name = "chrony";
+            static_configs = [
+              { targets = [ "localhost:${toString config.services.prometheus.exporters.chrony.port}" ]; }
+            ];
+          }
+          {
+            job_name = "forgejo";
+            static_configs = [
+              { targets = [ "localhost:${toString config.modules.forgejo.port}" ]; }
+            ];
+          }
+          {
+            job_name = "node";
+            static_configs = [
+              { targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ]; }
+            ];
+          }
+          {
+            job_name = "wireguard";
+            static_configs = [
+              { targets = [ "localhost:${toString config.services.prometheus.exporters.wireguard.port}" ]; }
+            ];
+          }
+          {
+            job_name = "victoriametrics";
+            static_configs = [
+              { targets = [ "localhost${toString config.services.victoriametrics.listenAddress}" ]; }
+            ];
+          }
+          {
+            job_name = "woodpecker";
+            bearer_token_file = config.age.secrets.woodpecker_metrics_token.path;
+            static_configs = [
+              { targets = [ "localhost:${toString config.modules.woodpecker-server.port}" ]; }
+            ];
+          }
+        ];
+      };
+    };
+  };
+
   modules = {
+    blocky = {
+      metrics = true;
+      ports.http = [ 2100 ];
+    };
+
     caddy = {
       enable = true;
       metrics = true;
@@ -74,15 +150,6 @@
 
     podman = {
       enable = true;
-    };
-
-    prometheus = {
-      enable = true;
-      exporters = {
-        node = {
-          enable = true;
-        };
-      };
     };
 
     wireguard = {
@@ -107,6 +174,7 @@
       hostname = "git.violet.sh";
       port = 2001;
       ssh_port = 2222;
+      metrics = true;
     };
 
     reposilite = {
@@ -129,6 +197,7 @@
       grpcPort = 2005;
       orgs = [ "community-tbd" ];
       admin = [ "violet-sh" ];
+      metrics = true;
     };
 
     woodpecker-agent = {

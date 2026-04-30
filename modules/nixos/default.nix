@@ -12,9 +12,9 @@
     ./mycorrhiza.nix
     ./pelican
     ./podman.nix
-    ./prometheus.nix
     ./reposilite.nix
     ./vencloud.nix
+    ./victoriametrics.nix
     ./wireguard.nix
     ./woodpecker
     ./zfs.nix

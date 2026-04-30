@@ -18,6 +18,11 @@ in
       description = "A list of admins";
       default = [ ];
     };
+    metrics = mkOption {
+      type = types.bool;
+      description = "Whether to enable Prometheus metrics for Woodpecker";
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -34,6 +39,7 @@ in
         WOODPECKER_GITHUB_CLIENT_FILE = config.age.secrets.woodpecker_github_client.path;
         WOODPECKER_GITHUB_SECRET_FILE = config.age.secrets.woodpecker_github_secret.path;
         WOODPECKER_AGENT_SECRET_FILE = config.age.secrets.woodpecker_agent_secret.path;
+        WOODPECKER_PROMETHEUS_AUTH_TOKEN_FILE = lib.mkIf cfg.metrics config.age.secrets.woodpecker_metrics_token.path;
       };
     };
 
@@ -55,6 +61,10 @@ in
       };
       woodpecker_agent_secret = {
         file = ../../../secrets/woodpecker_agent_secret.age;
+        mode = "644";
+      };
+      woodpecker_metrics_token = {
+        file = ../../../secrets/woodpecker_metrics_token.age;
         mode = "644";
       };
     };
