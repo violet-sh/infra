@@ -29,6 +29,7 @@
       hyperfine
       nmap
       packwiz
+      pandoc
       pastel
       pigz
       presenterm
@@ -61,6 +62,7 @@
 
       # Libraries
       grc
+      texliveSmall
     ];
 
     file = {

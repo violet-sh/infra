@@ -20,11 +20,17 @@
   };
 
   services = {
-    blueman.enable = true; # Bluetooth manager
     libinput.enable = true;
 
-    gvfs.enable = true; # Mount, trash, etc for Thunar
-    tumbler.enable = true; # Thumbnails for Thunar
+    # Thunar
+    gvfs.enable = true; # Mount, trash, etc
+    tumbler.enable = true; # Thumbnails
+
+    # Bluetooth manager
+    blueman = {
+      enable = true;
+      withApplet = true;
+    };
 
     # Display manager
     greetd = {

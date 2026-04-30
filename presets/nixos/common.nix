@@ -76,6 +76,7 @@
     usbutils # lsusb
     util-linux # lsblk
     wget
+    zip
   ];
 
   ### Modules

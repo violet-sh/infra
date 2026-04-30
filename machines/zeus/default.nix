@@ -1,7 +1,13 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   ### Module imports
   imports = [
+    inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
     ./hardware-configuration.nix
 
     ../../presets/nixos/laptop.nix
@@ -9,6 +15,7 @@
 
   ### Hardware
   hardware = {
+    enableAllFirmware = true;
     graphics.extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver

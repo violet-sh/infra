@@ -65,6 +65,11 @@
       enable = true;
       metrics = true;
       openFirewall = true;
+      extraConfig = ''
+        :443 {
+          respond "Violet ~ Aether"
+        }
+      '';
     };
 
     podman = {

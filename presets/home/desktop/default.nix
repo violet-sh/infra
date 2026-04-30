@@ -139,25 +139,38 @@
 
     zed-editor = {
       enable = true;
+      userSettings = {
+        disable_ai = true;
+        vim_mode = true;
+        telemetry = {
+          diagnostics = false;
+          metrics = false;
+        };
+      };
       extensions = [
         "amber"
         "angular"
         "ansible"
         "assembly"
         "astro"
+        "caddyfile"
         "cargo-tom"
         "csharp"
         "csv"
+        "d"
         "dart"
         "deno"
+        "desktop"
         "dockerfile"
         "docker-compose"
         "elixir"
+        "erlang"
         "fish"
         "fortran"
         "git-firefly"
         "gleam"
         "glsl"
+        "graphql"
         "groovy"
         "helm"
         "html"
@@ -168,16 +181,22 @@
         "kotlin"
         "latex"
         "liquid"
+        "log"
         "lua"
+        "make"
         "markdown-oxide"
         "matlab"
+        "nginx"
         "nim"
         "nix"
         "ocaml"
+        "perl"
         "php"
+        "pkl"
         "prolog"
         "proto"
         "r"
+        "ruby"
         "scala"
         "scss"
         "sql"
@@ -185,6 +204,8 @@
         "swift"
         "terraform"
         "toml"
+        "twig"
+        "vento"
         "vue"
         "xml"
         "zig"
