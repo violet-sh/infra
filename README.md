@@ -3,9 +3,11 @@
 My personal NixOS-based infrastructure
 
 ## nuh
+
 The Nix Update Helper, a CLI tool for managing and updating NixOS
 
 ## Directories
+
 - `machines` - Configuration files for NixOS machines
 - `modules` - Custom modules for Home Manager and NixOS
 - `overlays` - Custom overlays for including custom packages
@@ -15,8 +17,9 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 - `secrets` - Age-encrypted secrets
 
 ## Machines
+
 | Hostname | WireGuard IP | OS     | Description             |
-|----------|--------------|--------|-------------------------|
+| -------- | ------------ | ------ | ----------------------- |
 | Aether   | 10.8.0.1     | NixOS  | Primary VPS (Clouvider) |
 | Zeus     | 10.8.0.2     | NixOS  | Laptop                  |
 | Hera     | 10.8.0.3     | NixOS  | Desktop                 |
@@ -25,7 +28,9 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 | Athena   | 10.8.0.6     | NixOS  | Uni NAS                 |
 | Zephyrus | 10.8.0.7     | NixOS  | Backup VPS (zfs.rent)   |
 | Dionysus | 10.8.0.8     | iPadOS | Tablet                  |
+| Boreas   | 10.8.0.9     | NixOS  | Raspberry Pi (UVM)      |
 
 ### Other hosts
+
 - Eos: DNS nameserver 1
 - Nyx: DNS nameserver 2

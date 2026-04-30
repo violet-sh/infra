@@ -10,6 +10,7 @@ let
   hestia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHx2nkrX8P+FdvF5V6fvVt7XZw2Et6vIbkFVNbGvGZtX";
   # athena = "ssh-ed25519 <key>";
   # zephyrus = "ssh-ed25519 <key>";
+  # boreas = "ssh-ed25519 <key>";
 
   systems = [
     aether
@@ -18,6 +19,7 @@ let
     hestia
     # athena
     # zephyrus
+    # boreas
   ];
 in
 {

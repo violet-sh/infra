@@ -100,6 +100,7 @@
         # "hestia"
         # "athena"
         # "zephyrus"
+        # "boreas"
       ];
 
       treefmt = eachSystem (
