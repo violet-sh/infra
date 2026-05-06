@@ -9,6 +9,7 @@
 
   ### Hardware
   hardware = {
+    enableAllFirmware = true;
     nvidia.open = false;
   };
   services.xserver.videoDrivers = [ "nvidia" ]; # Is this really needed?

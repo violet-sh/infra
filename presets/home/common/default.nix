@@ -27,6 +27,7 @@
       has
       hexyl
       hyperfine
+      lazyjournal
       nmap
       packwiz
       pandoc

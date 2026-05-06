@@ -26,7 +26,6 @@
 
   services = {
     avizo.enable = true;
-    blueman-applet.enable = true;
     network-manager-applet.enable = true;
     swaync.enable = true;
 
@@ -188,7 +187,6 @@
 
       exec-once = [
         "avizo-service &"
-        "blueman-applet &"
         "nm-applet &"
         "wayland-pipewire-idle-inhibit &"
         "wl-clip-persist --clipboard regular"

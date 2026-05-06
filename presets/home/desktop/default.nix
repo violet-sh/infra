@@ -22,6 +22,8 @@
       coppwr
       davinci-resolve
       drawio
+      ente-auth
+      ente-desktop
       foliate
       gimp
       handbrake
@@ -31,6 +33,8 @@
       musescore
       newsflash
       prismlauncher
+      protonmail-desktop
+      proton-vpn
       pwvucontrol
       signal-desktop
       simplex-chat-desktop
@@ -141,7 +145,6 @@
       enable = true;
       userSettings = {
         disable_ai = true;
-        vim_mode = true;
         telemetry = {
           diagnostics = false;
           metrics = false;
