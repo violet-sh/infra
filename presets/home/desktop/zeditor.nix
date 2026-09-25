@@ -1,0 +1,82 @@
+{ ... }:
+{
+  programs.zed-editor = {
+    enable = true;
+    userSettings = {
+      disable_ai = true;
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
+    };
+    extensions = [
+      "amber"
+      "angular"
+      "ansible"
+      "assembly"
+      "astro"
+      "caddyfile"
+      "cargo-tom"
+      "csharp"
+      "csv"
+      "d"
+      "dart"
+      "deno"
+      "desktop"
+      "dockerfile"
+      "docker-compose"
+      "elixir"
+      "env"
+      "erlang"
+      "fish"
+      "fortran"
+      "gdscript"
+      "git-firefly"
+      "gleam"
+      "glsl"
+      "graphql"
+      "groovy"
+      "helm"
+      "html"
+      "ini"
+      "java"
+      "julia"
+      "just"
+      "kotlin"
+      "latex"
+      "liquid"
+      "log"
+      "lua"
+      "make"
+      "markdown-oxide"
+      "matlab"
+      "neocmake"
+      "nginx"
+      "nim"
+      "nix"
+      "ocaml"
+      "perl"
+      "php"
+      "pkl"
+      "prolog"
+      "proto"
+      "pug"
+      "r"
+      "ruby"
+      "scala"
+      "scss"
+      "sql"
+      "svelte"
+      "swift"
+      "tera"
+      "terraform"
+      "toml"
+      "twig"
+      "typst"
+      "vento"
+      "vue"
+      "xml"
+      "zig"
+    ];
+  };
+}

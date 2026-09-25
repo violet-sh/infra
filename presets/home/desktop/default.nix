@@ -4,6 +4,7 @@
     ./firefox.nix
     ./hyprland
     ./waybar
+    ./zeditor.nix
   ];
 
   home = {
@@ -137,80 +138,6 @@
         vadimcn.vscode-lldb
         vscjava.vscode-java-pack
         yzhang.markdown-all-in-one
-      ];
-    };
-
-    zed-editor = {
-      enable = true;
-      userSettings = {
-        disable_ai = true;
-        telemetry = {
-          diagnostics = false;
-          metrics = false;
-        };
-      };
-      extensions = [
-        "amber"
-        "angular"
-        "ansible"
-        "assembly"
-        "astro"
-        "caddyfile"
-        "cargo-tom"
-        "csharp"
-        "csv"
-        "d"
-        "dart"
-        "deno"
-        "desktop"
-        "dockerfile"
-        "docker-compose"
-        "elixir"
-        "erlang"
-        "fish"
-        "fortran"
-        "git-firefly"
-        "gleam"
-        "glsl"
-        "graphql"
-        "groovy"
-        "helm"
-        "html"
-        "ini"
-        "java"
-        "julia"
-        "just"
-        "kotlin"
-        "latex"
-        "liquid"
-        "log"
-        "lua"
-        "make"
-        "markdown-oxide"
-        "matlab"
-        "nginx"
-        "nim"
-        "nix"
-        "ocaml"
-        "perl"
-        "php"
-        "pkl"
-        "prolog"
-        "proto"
-        "r"
-        "ruby"
-        "scala"
-        "scss"
-        "sql"
-        "svelte"
-        "swift"
-        "terraform"
-        "toml"
-        "twig"
-        "vento"
-        "vue"
-        "xml"
-        "zig"
       ];
     };
   };
