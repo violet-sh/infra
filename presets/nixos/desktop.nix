@@ -35,7 +35,7 @@
     # Mullvad VPN
     mullvad-vpn = {
       enable = true;
-      package = pkgs.mullvad-vpn; # Use GUI instead of CLI
+      gui.enable = true;
     };
 
     udev.packages = [ pkgs.yubikey-personalization ];
