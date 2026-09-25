@@ -121,6 +121,12 @@
     fwupd.enable = true; # Firmware updater
   };
 
+  ### Replace sudo with sudo-rs
+  security = {
+    sudo.enable = false;
+    sudo-rs.enable = true;
+  };
+
   ### Networking
   networking = {
     domain = "violet.sh";
