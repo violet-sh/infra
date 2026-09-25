@@ -27,6 +27,7 @@
       ente-desktop
       foliate
       gimp
+      godot
       handbrake
       image-roll
       keepassxc
