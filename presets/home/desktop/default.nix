@@ -16,12 +16,12 @@
 
       # Apps
       ardour
-      aseprite
+      # aseprite
       bitwarden-desktop
       blender
       blockbench
       coppwr
-      davinci-resolve
+      # davinci-resolve
       drawio
       ente-auth
       ente-desktop
