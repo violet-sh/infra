@@ -29,8 +29,8 @@
 
     # BEAM
     beamPackages.expert
-    elixir
-    erlang
+    beamPackages.elixir
+    beamPackages.erlang
     erlang-language-platform
     glas
     gleam
