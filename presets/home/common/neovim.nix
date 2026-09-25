@@ -51,7 +51,7 @@
           END
         '';
       }
-      null-ls-nvim
+      none-ls-nvim
       nvim-autopairs
       {
         plugin = nvim-cmp;
