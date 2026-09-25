@@ -45,6 +45,11 @@
     nil
     nixd
 
+    # Ocaml
+    ocaml
+    ocamlformat
+    ocamlPackages.ocaml-lsp
+
     # Prolog
     swi-prolog-gui
 
