@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ ./hyprland.nix ];
+  imports = [
+    ./hyprland.nix
+    ./virtualisation.nix
+  ];
 
   hardware = {
     graphics.enable = true;

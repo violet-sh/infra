@@ -23,7 +23,6 @@
     firecracker
     firectl
     kraft
-    qemu
     podman-compose
     podman-tui
 
