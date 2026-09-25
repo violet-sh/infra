@@ -32,23 +32,10 @@
 
   age.secrets = {
     boreas_wg0_key.file = ../../secrets/boreas_wg0_key.age;
-    boreas_wg1_key.file = ../../secrets/boreas_wg1_key.age;
   };
 
   networking = {
     hostName = "boreas";
-    wireguard.interfaces.wg1 = {
-      ips = "10.200.255.3/32";
-      privateKeyFile = config.age.secrets.boreas_wg1_key.path;
-      peers = [
-        {
-          name = "vtix";
-          publicKey = "pSNmGicWbgR1YnxUP/cU7LWSRXU2WYUP7jzFs624kws=";
-          allowedIPs = [ "10.200.0.0/16" ];
-          endpoint = "132.198.104.152:51820";
-        }
-      ];
-    };
   };
 
   modules.wireguard = {
