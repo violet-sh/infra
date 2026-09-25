@@ -85,6 +85,7 @@
     blocky.enable = lib.mkDefault true;
     chrony.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
+    podman.enable = lib.mkDefault true;
   };
 
   ### Common programs

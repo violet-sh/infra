@@ -24,6 +24,8 @@
     firectl
     kraft
     qemu
+    podman-compose
+    podman-tui
 
     # BEAM
     beamPackages.expert
