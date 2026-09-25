@@ -39,6 +39,7 @@
     nodejs
     pnpm
     yarn
+    zola
 
     # Nix
     nil
