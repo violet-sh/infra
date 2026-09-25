@@ -109,9 +109,10 @@ in
           "hera.wg" = "10.8.0.3,fd47:4161:82f9::3";
           "hermes.wg" = "10.8.0.4,fd47:4161:82f9::4";
           "hestia.wg" = "10.8.0.5,fd47:4161:82f9::5";
-          "athena.wg" = "10.8.0.6,fd47:4161:82f9::6";
+          "boreas.wg" = "10.8.0.6,fd47:4161:82f9::6";
           "zephyrus.wg" = "10.8.0.7,fd47:4161:82f9::7";
           "dionysus.wg" = "10.8.0.8,fd47:4161:82f9::8";
+          "athena.wg" = "10.8.0.9,fd47:4161:82f9::9";
         };
         prometheus.enable = cfg.metrics;
       };

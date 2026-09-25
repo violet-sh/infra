@@ -75,7 +75,7 @@
         };
       }
       # {
-      #   name = "athena";
+      #   name = "boreas";
       #   publicKey = "<pubkey>";
       #   allowedIPs = [
       #     "10.8.0.6/32"
@@ -106,14 +106,14 @@
           "fd47:4161:82f9::8/128"
         ];
       }
-      {
-        name = "boreas";
-        publicKey = "pSNmGicWbgR1YnxUP/cU7LWSRXU2WYUP7jzFs624kws=";
-        allowedIPs = [
-          "10.8.0.9/32"
-          "fd47:4161:82f9::9/128"
-        ];
-      }
+      # {
+      #   name = "athena";
+      #   publicKey = "<pubkey>";
+      #   allowedIPs = [
+      #     "10.8.0.9/32"
+      #     "fd47:4161:82f9::9/128"
+      #   ];
+      # }
     ];
   };
 }

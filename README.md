@@ -18,17 +18,17 @@ The Nix Update Helper, a CLI tool for managing and updating NixOS
 
 ## Machines
 
-| Hostname | WireGuard IP | OS     | Description             |
-| -------- | ------------ | ------ | ----------------------- |
-| Aether   | 10.8.0.1     | NixOS  | Primary VPS (Clouvider) |
-| Zeus     | 10.8.0.2     | NixOS  | Laptop                  |
-| Hera     | 10.8.0.3     | NixOS  | Desktop                 |
-| Hermes   | 10.8.0.4     | iOS    | Phone                   |
-| Hestia   | 10.8.0.5     | NixOS  | Home NAS                |
-| Athena   | 10.8.0.6     | NixOS  | Uni NAS                 |
-| Zephyrus | 10.8.0.7     | NixOS  | Backup VPS (zfs.rent)   |
-| Dionysus | 10.8.0.8     | iPadOS | Tablet                  |
-| Boreas   | 10.8.0.9     | NixOS  | Raspberry Pi (UVM)      |
+| Hostname | WireGuard IP | OS     | Description              |
+| -------- | ------------ | ------ | ------------------------ |
+| Aether   | 10.8.0.1     | NixOS  | NYC VPS (Clouvider)      |
+| Zeus     | 10.8.0.2     | NixOS  | Laptop                   |
+| Hera     | 10.8.0.3     | NixOS  | Desktop                  |
+| Hermes   | 10.8.0.4     | iOS    | Phone                    |
+| Hestia   | 10.8.0.5     | NixOS  | Home NAS                 |
+| Boreas   | 10.8.0.6     | NixOS  | Vermont VPS (Lightboard) |
+| Zephyrus | 10.8.0.7     | NixOS  | Backup VPS (zfs.rent)    |
+| Dionysus | 10.8.0.8     | iPadOS | Tablet                   |
+| Athena   | 10.8.0.9     | NixOS  | Raspberry Pi (UVM)       |
 
 ### Other hosts
 

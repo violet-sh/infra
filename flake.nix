@@ -101,9 +101,9 @@
         "zeus"
         "hera"
         # "hestia"
-        # "athena"
-        # "zephyrus"
         # "boreas"
+        # "zephyrus"
+        # "athena"
       ];
 
       treefmt = eachSystem (
