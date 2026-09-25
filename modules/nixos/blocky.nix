@@ -66,12 +66,14 @@ in
 
   config = lib.mkIf cfg.enable {
     networking = lib.mkIf cfg.updateDns {
-      networkmanager.dns = "none";
+      networkmanager.dns = lib.mkForce "none";
       nameservers = [
         "127.0.0.1"
         "::1"
       ];
     };
+
+    services.resolved.enable = false;
 
     services.blocky = {
       enable = true;
