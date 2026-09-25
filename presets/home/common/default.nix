@@ -61,9 +61,13 @@
       # APIs
       cloudflared
 
+      # Typesetting
+      texliveSmall
+      tinymist
+      typst
+
       # Libraries
       grc
-      texliveSmall
     ];
 
     file = {
