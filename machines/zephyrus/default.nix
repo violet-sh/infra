@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../presets/nixos/server
+    ../../presets/nixos/server.nix
   ];
 
   boot = {
