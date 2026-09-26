@@ -102,7 +102,7 @@
         "hera"
         # "hestia"
         # "boreas"
-        # "zephyrus"
+        "zephyrus"
         # "athena"
       ];
 
