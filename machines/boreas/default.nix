@@ -23,7 +23,7 @@
 
   networking = {
     hostName = "boreas";
-    hostId = "18541de";
+    hostId = "318541de";
     useNetworkd = true;
     interfaces.ens18 = {
       ipv4.addresses = [
