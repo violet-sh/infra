@@ -101,7 +101,7 @@
         "zeus"
         "hera"
         # "hestia"
-        # "boreas"
+        "boreas"
         "zephyrus"
         # "athena"
       ];
