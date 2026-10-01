@@ -10,14 +10,7 @@
   boot = {
     loader.grub = {
       enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-      mirroredBoots = [
-        {
-          devices = [ "nodev" ];
-          path = "/boot";
-        }
-      ];
+      device = "/dev/vda";
     };
   };
 
