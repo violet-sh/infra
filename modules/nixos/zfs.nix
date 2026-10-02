@@ -31,15 +31,21 @@ in
 
   config = lib.mkIf cfg.enable {
     boot = {
+      kernelPackages = latestKernelPackage;
       loader.grub = lib.mkIf config.boot.loader.grub.enable {
         zfsSupport = true;
       };
-      kernelPackages = latestKernelPackage;
-      zfs.forceImportRoot = false;
+      zfs = {
+        forceImportRoot = false;
+      };
     };
 
     services = {
       zfs.autoScrub.enable = cfg.autoScrub;
     };
+
+    environment.systemPackages = with pkgs; [
+      zfs
+    ];
   };
 }
