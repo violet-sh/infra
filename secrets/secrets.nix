@@ -9,7 +9,7 @@ let
   hera = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO0m7hkaTc1rQQKnHmXcHKw3/w0awR0TSji25QcUOonI";
   hestia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHx2nkrX8P+FdvF5V6fvVt7XZw2Et6vIbkFVNbGvGZtX";
   # boreas = "ssh-ed25519 <key>";
-  # zephyrus = "ssh-ed25519 <key>";
+  zephyrus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExjG2SsUDXcnr9gdkbqXwNfY8cVSdM3CfKw61JXGjQZ";
   # athena = "ssh-ed25519 <key>";
 
   systems = [
@@ -18,7 +18,7 @@ let
     hera
     hestia
     # boreas
-    # zephyrus
+    zephyrus
     # athena
   ];
 in
