@@ -71,6 +71,11 @@ in
     aether
     hestia
   ];
+  "zephyrus_wg0_key.age".publicKeys = [
+    violet
+    ragenix
+    zephyrus
+  ];
   "dionysus_wg0_preshared_key.age".publicKeys = [
     violet
     ragenix
