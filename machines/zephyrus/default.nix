@@ -14,6 +14,10 @@
     };
   };
 
+  age.secrets = {
+    hera_wg0_key.file = ../../secrets/zephyrus_wg0_key.age;
+  };
+
   networking = {
     hostName = "zephyrus";
     hostId = "7920a53b";
@@ -41,6 +45,19 @@
     #   address = "<gateway_address>";
     #   interface = "enp1s0";
     # };
+  };
+
+  modules = {
+    zfs.enable = true;
+
+    wireguard = {
+      enable = true;
+      ips = [
+        "10.8.0.7/16"
+        "fd47:4161:82f9::7/64"
+      ];
+      privateKeyFile = config.age.secrets.zephyrus_wg0_key.path;
+    };
   };
 
   # ======================== DO NOT CHANGE THIS ========================
