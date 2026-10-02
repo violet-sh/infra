@@ -15,7 +15,7 @@
   };
 
   age.secrets = {
-    hera_wg0_key.file = ../../secrets/zephyrus_wg0_key.age;
+    zephyrus_wg0_key.file = ../../secrets/zephyrus_wg0_key.age;
   };
 
   networking = {
