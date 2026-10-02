@@ -86,18 +86,18 @@
       #     ip = "10.8.0.6";
       #   };
       # }
-      # {
-      #   name = "zephyrus";
-      #   publicKey = "<pubkey>";
-      #   allowedIPs = [
-      #     "10.8.0.7/32"
-      #     "fd47:4161:82f9::7/128"
-      #   ];
-      #   mesh = {
-      #     enable = true;
-      #     ip = "10.8.0.7";
-      #   };
-      # }
+      {
+        name = "zephyrus";
+        publicKey = "RAIRVIN2Z6amMFTBEYH1K3hX9NbLGXTnbk2gnBPYXB0=";
+        allowedIPs = [
+          "10.8.0.7/32"
+          "fd47:4161:82f9::7/128"
+        ];
+        mesh = {
+          # enable = true;
+          ip = "10.8.0.7";
+        };
+      }
       {
         name = "dionysus";
         publicKey = "tDfcWasj6SBCG+tFGl0UTZT0ZTiP5i+lCeN8o0Svtg4=";
